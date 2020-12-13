@@ -33,6 +33,12 @@ export type ResponseEntityMeta = {
     result: MetaResultEntity
 }
 
+export type EntityRelatedData = {
+    legislatures?: any
+    elections?: any
+    all_parliament_periods?: EntityRelatedData
+}
+
 export type operator = "eq" | "gt" | "gte" | "lt" | "lte" | "ne" | "sw" | "cn" | "ew";
 
 export type EntityParliament = {

@@ -62,7 +62,7 @@ describe("parliament", ()=>{
                 .get(path)
                 .reply(200, result);
             
-            response = await parliament(5, true);
+            response = await parliament(5, 'show_information');
         });
 
         it("delivers a response", async ()=>{
@@ -73,8 +73,16 @@ describe("parliament", ()=>{
             it("related_data exists", async ()=>{
                 expect(response.data.related_data).to.be.ok
             });
+            it("related_data.legislatures exists", async ()=>{
+                expect(response.data.related_data.legislatures).to.be.ok
+            });
+            it("related_data.elections exists", async ()=>{
+                expect(response.data.related_data.elections).to.be.ok
+            });
+            it("related_data.all_parliament_periods exists", async ()=>{
+                expect(response.data.related_data.all_parliament_periods).to.be.ok
+            });
         });
-
     });
 
     describe("list", ()=>{
