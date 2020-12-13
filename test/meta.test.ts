@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { responseMeta } from '../src/types';
+import { ResponseMeta } from '../src/types';
 
-const meta: responseMeta = {
+const meta: ResponseMeta = {
     abgeordnetenwatch_api: {
       version: "2.0",
       documentation: "https://www.abgeordnetenwatch.de/api"
