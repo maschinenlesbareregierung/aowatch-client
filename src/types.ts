@@ -9,7 +9,7 @@ export type MetaResult = {
 }
 
 export type MetaResultEntity = {
-    entity_id: number
+    entity_id: string
     entity_type: string
 }
 
@@ -23,6 +23,16 @@ export type ResponseMeta = {
     result: MetaResult | MetaResultEntity
 }
 
+export type ResponseEntityMeta = {
+    abgeordnetenwatch_api: {
+        version: MetaApiVersion
+        documentation: string
+    }
+    status: MetaStatus
+    status_message: string
+    result: MetaResultEntity
+}
+
 export type operator = "eq" | "gt" | "gte" | "lt" | "lte" | "ne" | "sw" | "cn" | "ew";
 
 export type EntityParliament = {
@@ -33,6 +43,7 @@ export type EntityParliament = {
     abgeordnetenwatch_url: string
     label_external_long: string
     current_project: EntityParliamentPeriod
+    related_data?: any
 }
 
 export type EntityParliamentPeriod = {
