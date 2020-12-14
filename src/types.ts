@@ -13,6 +13,11 @@ export type MetaResultEntity = {
     entity_type: string
 }
 
+export type PagerParameters = {
+    page: number
+    pager_limit: number
+}
+
 export type ResponseMeta = {
     abgeordnetenwatch_api: {
         version: MetaApiVersion
