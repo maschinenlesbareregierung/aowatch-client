@@ -18,6 +18,11 @@ export type PagerParameters = {
     pager_limit: number
 }
 
+export type RangeParameters = {
+    range_start: number
+    range_end: number
+}
+
 export type ResponseMeta = {
     abgeordnetenwatch_api: {
         version: MetaApiVersion
