@@ -202,6 +202,30 @@ describe("parliament", ()=>{
         });
     });
 
+    describe("list filtered", ()=>{
+        let response: any;
+        before(async ()=>{
+            const result = readFileSync('./test/fixtures/parliament/parliament-filtered.json');
+    
+            const parsed = parse(url)
+            const path = `${parsed.path}?id=1`;
+            const baseUrl = `${parsed.protocol}//${parsed.host}`;
+    
+            nock(baseUrl)
+                .get(path)
+                .reply(200, result);
+            
+            response = await parliamentList(null, null, { id: 1});
+            
+        });
+        it("delivers a response", async ()=>{
+            expect(response).to.be.ok
+        });
+        it("the first element in the result array is the expected one", async ()=>{
+            expect(response.data[0].id).to.eq(1)
+        });
+    });
+
     describe("list paged", ()=>{
         let response: any;
         before(async ()=>{

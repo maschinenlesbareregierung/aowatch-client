@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 import { encode } from 'querystring'
-import { EntityParliament, ResponseMeta, ResponseEntityMeta, PagerParameters, RangeParameters, SortParameters } from './types';
+import { EntityParliament, ResponseMeta, ResponseEntityMeta, PagerParameters, RangeParameters, SortParameters, FilterParameters } from './types';
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parliaments'
 export type ParliamentListResult = {
     meta: ResponseMeta,
@@ -14,7 +14,7 @@ export type ParliamentResult = {
 
 export type RelatedDataParameter = 'show_information' | 'legislatures' | 'elections' | 'all_parliament_periods';
 
-export const parliamentList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters): Promise<ParliamentListResult> =>{
+export const parliamentList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters): Promise<ParliamentListResult> =>{
     
     type RequestParameters = {
         [x: string]: string | number
@@ -29,6 +29,11 @@ export const parliamentList = async (params?: PagerParameters|RangeParameters|nu
     if (!!sort) {
         requestParameters = {...requestParameters, ...sort}
     }
+    
+    if (!!filter) {
+        requestParameters = {...requestParameters, ...filter}
+    }
+
 
     const query = encode(requestParameters);
 

@@ -30,6 +30,10 @@ export type SortParameters = {
     sort_direction: StringSortDirection
 }
 
+export type FilterParameters = {
+    [x: string]: string | number
+}
+
 export type ResponseMeta = {
     abgeordnetenwatch_api: {
         version: MetaApiVersion
