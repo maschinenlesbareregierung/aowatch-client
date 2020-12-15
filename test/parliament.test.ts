@@ -174,6 +174,30 @@ describe("parliament", ()=>{
         });
     });
 
+    describe("list sorted", ()=>{
+        let response: any;
+        before(async ()=>{
+            const result = readFileSync('./test/fixtures/parliament/parliament-sorted.json');
+    
+            const parsed = parse(url)
+            const path = `${parsed.path}?sort_by=id&sort_direction=asc`;
+            const baseUrl = `${parsed.protocol}//${parsed.host}`;
+    
+            nock(baseUrl)
+                .get(path)
+                .reply(200, result);
+            
+            response = await parliamentList(null, {
+                sort_by: 'id',
+                sort_direction: 'asc'
+            });
+            
+        });
+        it("delivers a response", async ()=>{
+            expect(response).to.be.ok
+        });
+    });
+
     describe("list paged", ()=>{
         let response: any;
         before(async ()=>{

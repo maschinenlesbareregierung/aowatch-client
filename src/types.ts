@@ -23,6 +23,13 @@ export type RangeParameters = {
     range_end: number
 }
 
+export type StringSortDirection = "asc" | "desc"
+
+export type SortParameters = {
+    sort_by: string
+    sort_direction: StringSortDirection
+}
+
 export type ResponseMeta = {
     abgeordnetenwatch_api: {
         version: MetaApiVersion
