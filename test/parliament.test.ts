@@ -196,6 +196,10 @@ describe("parliament", ()=>{
         it("delivers a response", async ()=>{
             expect(response).to.be.ok
         });
+
+        it("the first element in the result array is the expected one", async ()=>{
+            expect(response.data[0].id).to.eq(1)
+        });
     });
 
     describe("list paged", ()=>{
