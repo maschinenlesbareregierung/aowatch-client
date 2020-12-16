@@ -31,19 +31,19 @@ export const parliamentList = async (params?: PagerParameters|RangeParameters|nu
     }
     
     let requestParameters: RequestParameters = {}
-    
+    // apply range or pager
     if (!!params) {
         requestParameters = {...requestParameters, ...params}
     }
-
+    // apply sorting
     if (!!sort) {
         requestParameters = {...requestParameters, ...sort}
     }
-
+    // apply a simple filter
     if (!!filter && isFilterParameters(filter)) {
         requestParameters = {...requestParameters, ...filter}
     }
-
+    // apply a complex filter
     if (!!filter && !isFilterParameters(filter)) {
         filter.map((f:OperatorFilterParameters)=>{
             if (!requestParameters[f.field]) {
@@ -52,10 +52,7 @@ export const parliamentList = async (params?: PagerParameters|RangeParameters|nu
             requestParameters[f.field][f.operator] = f.value
         })
     }
-
-
-    requestParameters = requestParameters
-
+    
     const query = stringify(requestParameters);
 
     const requesturl = !!query ? `${url}?${query}` : url;
