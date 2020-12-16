@@ -1,6 +1,5 @@
 const axios = require('axios').default;
-import { stringify } from 'qs'
-import { isFilterParameters } from './is-filter-parameters';
+import { createRequestQuery } from './create-request-query';
 import { 
     EntityParliament, 
     ResponseMeta, 
@@ -9,11 +8,11 @@ import {
     RangeParameters, 
     SortParameters, 
     FilterParameters, 
-    OperatorFilterParameters,
-    RequestParameters,
-    FilterParameterValue 
+    OperatorFilterParameters
 } from './types';
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parliaments'
+
+
 export type ParliamentListResult = {
     meta: ResponseMeta,
     data: EntityParliament[]
@@ -24,35 +23,11 @@ export type ParliamentResult = {
     data: EntityParliament
 }
 
-export type RelatedDataParameter = 'show_information' | 'legislatures' | 'elections' | 'all_parliament_periods';
+export type ParliamentRelatedDataParameter = 'show_information' | 'legislatures' | 'elections' | 'all_parliament_periods';
 
 export const parliamentList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<ParliamentListResult> =>{
 
-    let requestParameters: RequestParameters = {}
-    // apply range or pager
-    if (!!params) {
-        requestParameters = {...requestParameters, ...params}
-    }
-    // apply sorting
-    if (!!sort) {
-        requestParameters = {...requestParameters, ...sort}
-    }
-    // apply a simple filter
-    if (!!filter && isFilterParameters(filter)) {
-        requestParameters = {...requestParameters, ...filter}
-    }
-    // apply a complex filter
-    if (!!filter && !isFilterParameters(filter)) {
-        filter.map((f:OperatorFilterParameters)=>{
-            if (!requestParameters[f.field]) {
-                requestParameters[f.field] = {} as FilterParameterValue
-            }
-            requestParameters[f.field][f.operator] = f.value
-        })
-    }
-    
-    const query = stringify(requestParameters);
-
+    const query = createRequestQuery(params, sort, filter);    
     const requesturl = !!query ? `${url}?${query}` : url;
 
     return axios.get(requesturl)
@@ -60,7 +35,7 @@ export const parliamentList = async (params?: PagerParameters|RangeParameters|nu
         .then((response:any)=>response as ParliamentListResult)      
 };
 
-export const parliament = async (id: number, relatedData:RelatedDataParameter|null=null): Promise<ParliamentResult> =>{
+export const parliament = async (id: number, relatedData:ParliamentRelatedDataParameter|null=null): Promise<ParliamentResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
     if (!!relatedData) {
