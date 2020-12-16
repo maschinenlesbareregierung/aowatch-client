@@ -90,6 +90,16 @@ export type EntityParliament = {
 }
 
 export type EntityParliamentPeriod = {
-    [x: string]: any
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    abgeordnetenwatch_url: string
+    parliament: EntityParliament
+    previous_peroid: EntityParliamentPeriod
+    type: string
+    election_date: string | null
+    start_date_period: string
+    end_date_period: string
 }
 
