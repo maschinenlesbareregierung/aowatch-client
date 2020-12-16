@@ -1,7 +1,18 @@
 const axios = require('axios').default;
 import { stringify } from 'qs'
-
-import { EntityParliament, ResponseMeta, ResponseEntityMeta, PagerParameters, RangeParameters, SortParameters, FilterParameters, OperatorFilterParameters, Operator } from './types';
+import { isFilterParameters } from './is-filter-parameters';
+import { 
+    EntityParliament, 
+    ResponseMeta, 
+    ResponseEntityMeta, 
+    PagerParameters, 
+    RangeParameters, 
+    SortParameters, 
+    FilterParameters, 
+    OperatorFilterParameters,
+    RequestParameters,
+    FilterParameterValue 
+} from './types';
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parliaments'
 export type ParliamentListResult = {
     meta: ResponseMeta,
@@ -15,21 +26,8 @@ export type ParliamentResult = {
 
 export type RelatedDataParameter = 'show_information' | 'legislatures' | 'elections' | 'all_parliament_periods';
 
-
-function isFilterParameters(filter: FilterParameters | OperatorFilterParameters[]): filter is FilterParameters {
-    return (filter as FilterParameters).length == undefined;
-}
-
 export const parliamentList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<ParliamentListResult> =>{
 
-    type FilterParameterValue = {
-        [x: string]: string | number
-    }
-
-    type RequestParameters = {
-        [x: string]: string | number | any | FilterParameterValue
-    }
-    
     let requestParameters: RequestParameters = {}
     // apply range or pager
     if (!!params) {

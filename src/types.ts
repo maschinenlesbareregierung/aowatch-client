@@ -13,6 +13,16 @@ export type MetaResultEntity = {
     entity_type: string
 }
 
+
+// extra parameter for a complex filter parameter value
+export type FilterParameterValue = {
+    [x: string]: string | number
+}
+// default request parameters
+export type RequestParameters = {
+    [x: string]: string | number | any | FilterParameterValue
+}
+
 export type PagerParameters = {
     page: number
     pager_limit: number
