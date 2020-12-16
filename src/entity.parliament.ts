@@ -1,6 +1,7 @@
 const axios = require('axios').default;
-import { encode } from 'querystring'
-import { EntityParliament, ResponseMeta, ResponseEntityMeta, PagerParameters, RangeParameters, SortParameters, FilterParameters } from './types';
+import { stringify } from 'qs'
+
+import { EntityParliament, ResponseMeta, ResponseEntityMeta, PagerParameters, RangeParameters, SortParameters, FilterParameters, OperatorFilterParameters, Operator } from './types';
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parliaments'
 export type ParliamentListResult = {
     meta: ResponseMeta,
@@ -14,10 +15,19 @@ export type ParliamentResult = {
 
 export type RelatedDataParameter = 'show_information' | 'legislatures' | 'elections' | 'all_parliament_periods';
 
-export const parliamentList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters): Promise<ParliamentListResult> =>{
-    
-    type RequestParameters = {
+
+function isFilterParameters(filter: FilterParameters | OperatorFilterParameters[]): filter is FilterParameters {
+    return (filter as FilterParameters).length == undefined;
+}
+
+export const parliamentList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<ParliamentListResult> =>{
+
+    type FilterParameterValue = {
         [x: string]: string | number
+    }
+
+    type RequestParameters = {
+        [x: string]: string | number | any | FilterParameterValue
     }
     
     let requestParameters: RequestParameters = {}
@@ -29,13 +39,24 @@ export const parliamentList = async (params?: PagerParameters|RangeParameters|nu
     if (!!sort) {
         requestParameters = {...requestParameters, ...sort}
     }
-    
-    if (!!filter) {
+
+    if (!!filter && isFilterParameters(filter)) {
         requestParameters = {...requestParameters, ...filter}
     }
 
+    if (!!filter && !isFilterParameters(filter)) {
+        filter.map((f:OperatorFilterParameters)=>{
+            if (!requestParameters[f.field]) {
+                requestParameters[f.field] = {} as FilterParameterValue
+            }
+            requestParameters[f.field][f.operator] = f.value
+        })
+    }
 
-    const query = encode(requestParameters);
+
+    requestParameters = requestParameters
+
+    const query = stringify(requestParameters);
 
     const requesturl = !!query ? `${url}?${query}` : url;
 

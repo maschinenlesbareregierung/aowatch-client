@@ -1,41 +1,41 @@
 import { expect } from 'chai';
-import { operator } from '../src/types';
+import { Operator } from '../src/types';
 
-describe("operator", ()=>{
+describe("Operator", ()=>{
     it("eq", ()=>{
-        const o:operator = "eq";
+        const o:Operator = "eq";
         expect(o).to.be.ok
     });
     it("gt", ()=>{
-        const o:operator = "gt";
+        const o:Operator = "gt";
         expect(o).to.be.ok
     });
     it("gte", ()=>{
-        const o:operator = "gte";
+        const o:Operator = "gte";
         expect(o).to.be.ok
     });
     it("lt", ()=>{
-        const o:operator = "lt";
+        const o:Operator = "lt";
         expect(o).to.be.ok
     });
     it("lte", ()=>{
-        const o:operator = "lte";
+        const o:Operator = "lte";
         expect(o).to.be.ok
     });
     it("ne", ()=>{
-        const o:operator = "ne";
+        const o:Operator = "ne";
         expect(o).to.be.ok
     });
     it("sw", ()=>{
-        const o:operator = "sw";
+        const o:Operator = "sw";
         expect(o).to.be.ok
     });
     it("cn", ()=>{
-        const o:operator = "cn";
+        const o:Operator = "cn";
         expect(o).to.be.ok
     });
     it("ew", ()=>{
-        const o:operator = "ew";
+        const o:Operator = "ew";
         expect(o).to.be.ok
     });
 });

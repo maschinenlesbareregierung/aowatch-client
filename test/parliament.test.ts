@@ -226,6 +226,33 @@ describe("parliament", ()=>{
         });
     });
 
+    describe("list operator filtered", ()=>{
+        let response: any;
+        before(async ()=>{
+            const result = readFileSync('./test/fixtures/parliament/parliament-filtered-operator.json');
+    
+            const parsed = parse(url)
+            const path = `${parsed.path}?id%5Beq%5D=1`;
+            const baseUrl = `${parsed.protocol}//${parsed.host}`;
+    
+            nock(baseUrl)
+                .get(path)
+                .reply(200, result);
+            
+            response = await parliamentList(null, null, [
+                {
+                    field: 'id',
+                    operator: 'eq',
+                    value: 1
+                }
+            ]);
+            
+        });
+        it("delivers a response", async ()=>{
+            expect(response).to.be.ok
+        });
+    });
+
     describe("list paged", ()=>{
         let response: any;
         before(async ()=>{

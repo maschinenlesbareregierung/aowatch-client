@@ -34,6 +34,12 @@ export type FilterParameters = {
     [x: string]: string | number
 }
 
+export type OperatorFilterParameters = {
+    field: string
+    operator: Operator
+    value: string | number
+}
+
 export type ResponseMeta = {
     abgeordnetenwatch_api: {
         version: MetaApiVersion
@@ -60,7 +66,7 @@ export type EntityRelatedData = {
     all_parliament_periods?: EntityRelatedData
 }
 
-export type operator = "eq" | "gt" | "gte" | "lt" | "lte" | "ne" | "sw" | "cn" | "ew";
+export type Operator = "eq" | "gt" | "gte" | "lt" | "lte" | "ne" | "sw" | "cn" | "ew";
 
 export type EntityParliament = {
     id: number
