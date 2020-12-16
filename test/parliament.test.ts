@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { parliamentList, parliament, url, ParliamentResult } from '../src/entity.parliament';
+import { parliamentList, parliament, url, ParliamentResult } from '../src/entities/entity.parliament';
 import { readFileSync } from 'fs';
 import { parse } from 'url';
 

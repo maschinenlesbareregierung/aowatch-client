@@ -1,5 +1,5 @@
 const axios = require('axios').default;
-import { createRequestQuery } from './create-request-query';
+import { createRequestQuery } from '../create-request-query';
 import { 
     EntityParliament, 
     ResponseMeta, 
@@ -9,7 +9,7 @@ import {
     SortParameters, 
     FilterParameters, 
     OperatorFilterParameters
-} from './types';
+} from '../types';
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parliaments'
 
 
