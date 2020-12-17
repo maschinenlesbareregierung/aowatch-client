@@ -101,5 +101,6 @@ export type EntityParliamentPeriod = {
     election_date: string | null
     start_date_period: string
     end_date_period: string
+    related_data?: any
 }
 

@@ -37,13 +37,13 @@ describe("parliament", ()=>{
                 const docUrl = 'https://www.abgeordnetenwatch.de/api/entitaeten/parliament';
                 expect(response.meta.abgeordnetenwatch_api.documentation).to.eq(docUrl);
             });
-            it("status ios ok", async ()=>{
+            it("status is ok", async ()=>{
                 expect(response.meta.status).to.eq('ok');
             });
-            it("result.count is 18", async ()=>{
+            it("result.entity_id is 5", async ()=>{
                 expect(response.meta.result.entity_id).to.eq('5');
             });
-            it("result.count is 18", async ()=>{
+            it("result.entity_type is parliament", async ()=>{
                 expect(response.meta.result.entity_type).to.eq('parliament');
             });
         }); 
