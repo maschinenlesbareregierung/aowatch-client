@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./test/*.test.ts"
+    "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./test/*.test.ts",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
     "@types/qs": "^6.9.5",
+    "auto-changelog": "^2.2.1",
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "nock": "^13.0.5",
