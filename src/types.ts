@@ -104,3 +104,29 @@ export type EntityParliamentPeriod = {
     related_data?: any
 }
 
+
+export type EntityPolitician = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    abgeordnetenwatch_url: string
+    first_name: string
+    last_name: string
+    birth_name: string
+    sex: string
+    year_of_birth: number
+    party: any
+    party_past: string
+    deceased: boolean
+    deceased_date: string
+    education: string
+    residence: string
+    occupation: string
+    statistic_questions: string
+    statistic_questions_answered: string
+    qid_wikidata: string
+    field_title: string
+    related_data?: any
+}
+
