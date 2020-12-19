@@ -89,6 +89,17 @@ export type EntityParliament = {
     related_data?: any
 }
 
+export type EntityCommittee = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    abgeordnetenwatch_url: string
+    field_legislature: EntityParliamentPeriod
+    field_topics: any[]
+    related_data?: any
+
+}
 export type EntityParliamentPeriod = {
     id: number
     entity_type: string
