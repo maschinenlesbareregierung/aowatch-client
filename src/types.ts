@@ -141,3 +141,12 @@ export type EntityPolitician = {
     related_data?: any
 }
 
+export type EntityTopic = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    abgeordnetenwatch_url: string
+    description: string
+    parent?: EntityTopic
+}
