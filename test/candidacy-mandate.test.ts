@@ -82,4 +82,51 @@ describe("candidacy-mandate", ()=>{
             });
         });
     });
+
+    describe("list", ()=>{
+        let response: any;
+        before(async ()=>{
+            const result = readFileSync('./test/fixtures/candidacy-mandate/candidacy-mandates.json');
+    
+            const parsed = parse(url)
+            const path = `${parsed.path}`;
+            const baseUrl = `${parsed.protocol}//${parsed.host}`;
+    
+            nock(baseUrl)
+                .get(path)
+                .reply(200, result);
+            
+            response = await candidacyMandateList();
+            
+        });
+        it("delivers a response", async ()=>{
+            expect(response).to.be.ok
+        });
+        it("has the the expected amount of results", async ()=>{
+            expect(response.data.length).to.eq(100)
+        });
+        
+        describe("meta", ()=>{ 
+            it("abgeordnetenwatch_api.documentation is correct", async ()=>{
+                const docUrl = 'https://www.abgeordnetenwatch.de/api/entitaeten/candidacy-mandate';
+                expect(response.meta.abgeordnetenwatch_api.documentation).to.eq(docUrl)
+            });
+            
+            it("result.count is 100", async ()=>{
+                expect(response.meta.result.count).to.eq(100)
+            });
+            it("result.total is 488", async ()=>{
+                expect(response.meta.result.total).to.eq(46441)
+            });
+
+            it("result.range_start is 0", async ()=>{
+                expect(response.meta.result.range_start).to.eq(0)
+            });
+            it("result.range_end is 0", async ()=>{
+                expect(response.meta.result.range_end).to.eq(100)
+            });
+        });
+
+    });
+
 });
