@@ -150,3 +150,22 @@ export type EntityTopic = {
     description: string
     parent?: EntityTopic
 }
+
+export type EntityCandidacyMandate = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    id_external_administration: string
+    id_external_administration_description: string
+    type: "candidacy" | "mandate"
+    parliament_period: EntityParliamentPeriod
+    politician: EntityPolitician
+    party: any
+    start_date: string
+    end_date: string
+    info: string
+    electoral_data: any
+    fraction_membership: any
+    related_data?: any
+}
