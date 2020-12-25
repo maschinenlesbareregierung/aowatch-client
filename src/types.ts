@@ -166,6 +166,18 @@ export type EntityPoll = {
     related_data?: any
 }
 
+export type EntityVote = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    mandate: EntityCandidacyMandate,
+    poll: EntityPoll
+    vote: string
+    reason_no_show: string
+    reason_no_show_other: string
+}
+
 export type EntityTopic = {
     id: number
     entity_type: string
