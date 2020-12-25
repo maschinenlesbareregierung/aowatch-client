@@ -98,8 +98,18 @@ export type EntityCommittee = {
     field_legislature: EntityParliamentPeriod
     field_topics: any[]
     related_data?: any
-
 }
+
+export type EntityCommitteeMembership = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    committee: EntityCommittee
+    candidacy_mandate: any
+    committee_role: string
+}
+
 export type EntityParliamentPeriod = {
     id: number
     entity_type: string
