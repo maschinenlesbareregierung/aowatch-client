@@ -151,6 +151,21 @@ export type EntityPolitician = {
     related_data?: any
 }
 
+export type EntityPoll = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    abgeordnetenwatch_url: string
+    field_committees: EntityCommittee
+    field_intro: string
+    field_legislature: EntityParliamentPeriod
+    field_poll_date: string
+    field_related_links: any[]
+    field_topics: any[]
+    related_data?: any
+}
+
 export type EntityTopic = {
     id: number
     entity_type: string
