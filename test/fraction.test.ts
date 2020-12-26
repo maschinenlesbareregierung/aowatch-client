@@ -5,7 +5,7 @@ import { parse } from 'url';
 
 import  nock from 'nock';
 
-describe("vote", ()=>{
+describe("fraction", ()=>{
     describe("entity", ()=>{
         let response: FractionResult;
         before(async ()=>{
