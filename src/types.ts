@@ -178,6 +178,15 @@ export type EntityVote = {
     reason_no_show_other: string
 }
 
+export type EntityParty = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    full_name: string
+    related_data?: any
+}
+
 export type EntityTopic = {
     id: number
     entity_type: string
