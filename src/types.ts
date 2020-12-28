@@ -131,6 +131,17 @@ export type EntityConstituency = {
     parliament_period: EntityParliamentPeriod
 }
 
+export type EntityElectionProgram = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    parliament_period: EntityParliamentPeriod
+    party: EntityParty
+    link: any
+    file: string
+}
+
 export type EntityElectoralList = {
     id: number
     entity_type: string
