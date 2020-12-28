@@ -121,6 +121,16 @@ export type EntityCommitteeMembership = {
     committee_role: string
 }
 
+export type EntityConstituency = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    name: string
+    number: number
+    parliament_period: EntityParliamentPeriod
+}
+
 export type EntityElectoralList = {
     id: number
     entity_type: string
@@ -144,7 +154,6 @@ export type EntityParliamentPeriod = {
     end_date_period: string
     related_data?: any
 }
-
 
 export type EntityPolitician = {
     id: number
