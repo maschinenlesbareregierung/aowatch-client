@@ -138,6 +138,13 @@ export type EntityCountry = {
     api_url: string
 }
 
+export type EntityCity = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+}
+
 export type EntityElectionProgram = {
     id: number
     entity_type: string

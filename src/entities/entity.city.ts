@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 import { createRequestQuery } from '../create-request-query';
 import { 
-    EntityCountry, 
+    EntityCity, 
     ResponseMeta, 
     ResponseEntityMeta, 
     PagerParameters, 
@@ -10,34 +10,34 @@ import {
     FilterParameters, 
     OperatorFilterParameters
 } from '../types';
-export const url = 'https://www.abgeordnetenwatch.de/api/v2/countries'
+export const url = 'https://www.abgeordnetenwatch.de/api/v2/cities'
 
 
-export type CountryListResult = {
+export type CityListResult = {
     meta: ResponseMeta,
-    data: EntityCountry[]
+    data: EntityCity[]
 }
 
-export type CountryResult = {
+export type CityResult = {
     meta: ResponseEntityMeta,
-    data: EntityCountry
+    data: EntityCity
 }
 
-export const countryList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<CountryListResult> =>{
+export const cityList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<CityListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
     const requesturl = !!query ? `${url}?${query}` : url;
 
     return axios.get(requesturl)
         .then((response:any)=>response.data)
-        .then((response:any)=>response as CountryListResult)      
+        .then((response:any)=>response as CityListResult)      
 };
 
-export const country = async (id: number): Promise<CountryResult> =>{
+export const city = async (id: number): Promise<CityResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
 
     return axios.get(requestUrl.toString())
         .then((response:any)=>response.data)
-        .then((response:any)=>response as CountryResult)      
+        .then((response:any)=>response as CityResult)      
 };
