@@ -8,8 +8,8 @@
     "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./test/*.test.ts",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Sebastian Schürmann",
+  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
