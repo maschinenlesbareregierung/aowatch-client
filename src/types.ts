@@ -89,6 +89,17 @@ export type EntityParliament = {
     related_data?: any
 }
 
+export type EntityFraction = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    abgeordnetenwatch_url: string
+    full_name: string
+    short_name: string
+    legislature: string
+}
+
 export type EntityCommittee = {
     id: number
     entity_type: string
@@ -98,8 +109,62 @@ export type EntityCommittee = {
     field_legislature: EntityParliamentPeriod
     field_topics: any[]
     related_data?: any
-
 }
+
+export type EntityCommitteeMembership = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    committee: EntityCommittee
+    candidacy_mandate: any
+    committee_role: string
+}
+
+export type EntityConstituency = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    name: string
+    number: number
+    parliament_period: EntityParliamentPeriod
+}
+
+export type EntityCountry = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+}
+
+export type EntityCity = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+}
+
+export type EntityElectionProgram = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    parliament_period: EntityParliamentPeriod
+    party: EntityParty
+    link: any
+    file: string
+}
+
+export type EntityElectoralList = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    name: string
+    parliament_period: EntityParliamentPeriod
+}
+
 export type EntityParliamentPeriod = {
     id: number
     entity_type: string
@@ -114,7 +179,6 @@ export type EntityParliamentPeriod = {
     end_date_period: string
     related_data?: any
 }
-
 
 export type EntityPolitician = {
     id: number
@@ -141,6 +205,40 @@ export type EntityPolitician = {
     related_data?: any
 }
 
+export type EntityPoll = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    abgeordnetenwatch_url: string
+    field_committees: EntityCommittee
+    field_intro: string
+    field_legislature: EntityParliamentPeriod
+    field_poll_date: string
+    field_related_links: any[]
+    field_topics: any[]
+    related_data?: any
+}
+
+export type EntityParty = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    full_name: string
+    related_data?: any
+}
+
+export type EntitySidejobOrganization = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    field_city: EntityCity
+    field_country: EntityCountry
+    field_topics: EntityTopic[]
+}
+
 export type EntityTopic = {
     id: number
     entity_type: string
@@ -149,4 +247,35 @@ export type EntityTopic = {
     abgeordnetenwatch_url: string
     description: string
     parent?: EntityTopic
+}
+
+export type EntityVote = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    mandate: EntityCandidacyMandate,
+    poll: EntityPoll
+    vote: string
+    reason_no_show: string
+    reason_no_show_other: string
+}
+
+export type EntityCandidacyMandate = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    id_external_administration: string
+    id_external_administration_description: string
+    type: "candidacy" | "mandate"
+    parliament_period: EntityParliamentPeriod
+    politician: EntityPolitician
+    party: any
+    start_date: string
+    end_date: string
+    info: string
+    electoral_data: any
+    fraction_membership: any
+    related_data?: any
 }
