@@ -239,6 +239,24 @@ export type EntitySidejobOrganization = {
     field_topics: EntityTopic[]
 }
 
+export type EntitySidejob = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    additional_information: string
+    mandates: EntityCandidacyMandate[]
+    category: string
+    income_level: string
+    interval: string
+    data_change_date: string
+    created: number
+    sidejob_organization: EntitySidejobOrganization
+    field_city: EntityCity
+    field_country: EntityCountry
+    topics: EntityTopic[]
+}
+
 export type EntityTopic = {
     id: number
     entity_type: string
