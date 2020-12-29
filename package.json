@@ -6,7 +6,6 @@
   "exports": {
     "./": "./dist-node/"
   },
-  "type": "module",
   "scripts": {
     "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./test/*.test.ts",
     "version": "auto-changelog -p && git add CHANGELOG.md",
