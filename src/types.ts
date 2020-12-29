@@ -220,18 +220,6 @@ export type EntityPoll = {
     related_data?: any
 }
 
-export type EntityVote = {
-    id: number
-    entity_type: string
-    label: string
-    api_url: string
-    mandate: EntityCandidacyMandate,
-    poll: EntityPoll
-    vote: string
-    reason_no_show: string
-    reason_no_show_other: string
-}
-
 export type EntityParty = {
     id: number
     entity_type: string
@@ -239,6 +227,16 @@ export type EntityParty = {
     api_url: string
     full_name: string
     related_data?: any
+}
+
+export type EntitySidejobOrganization = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    field_city: EntityCity
+    field_country: EntityCountry
+    field_topics: EntityTopic[]
 }
 
 export type EntityTopic = {
@@ -249,6 +247,18 @@ export type EntityTopic = {
     abgeordnetenwatch_url: string
     description: string
     parent?: EntityTopic
+}
+
+export type EntityVote = {
+    id: number
+    entity_type: string
+    label: string
+    api_url: string
+    mandate: EntityCandidacyMandate,
+    poll: EntityPoll
+    vote: string
+    reason_no_show: string
+    reason_no_show_other: string
 }
 
 export type EntityCandidacyMandate = {
