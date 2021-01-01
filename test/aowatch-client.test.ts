@@ -56,7 +56,6 @@ describe("AowatchCLient", ()=>{
         it("emits parameters event", async (done)=>{
          
             client.on("parameters", (name: any)=>{
-                console.log('name', name)
                 done()
             })
             const res = await client.candidacyMandate.list();
@@ -65,7 +64,6 @@ describe("AowatchCLient", ()=>{
         it("emits success event", (done)=>{
          
             client.on("success", (name: any)=>{
-                console.log('name', name)
                 done()
             })
             client.candidacyMandate.list();
