@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "exports": {
-    "./": "./dist-node/"
+    ".": "./dist-node/aowatch-client.js"
   },
   "scripts": {
     "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./test/*.test.ts",
