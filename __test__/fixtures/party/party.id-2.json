@@ -1,0 +1,1 @@
+{"meta":{"abgeordnetenwatch_api":{"version":"2.0","documentation":"https:\/\/www.abgeordnetenwatch.de\/api\/entitaeten\/party"},"status":"ok","status_message":"","result":{"entity_id":"2","entity_type":"party"}},"data":{"id":2,"entity_type":"party","label":"CDU","api_url":"https:\/\/www.abgeordnetenwatch.de\/api\/v2\/parties\/2","full_name":"CDU"}}
