@@ -2,14 +2,16 @@
   "name": "aowatch-client",
   "version": "1.0.9",
   "description": "",
-  "main": "index.js",
+  "main": "./dist-node/aowatch-client.js",
   "exports": {
     ".": "./dist-node/aowatch-client.js"
   },
   "scripts": {
-    "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./test/*.test.ts",
+    "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./__test__/*.test.ts",
     "version": "auto-changelog -p && git add CHANGELOG.md",
-    "build:node": "tsc --p ./tsconfig.node.json"
+    "build:node": "tsc --p ./tsconfig.node.json",
+    "clean": "shx rm -rf _bundles dist dist-node",
+    "build": "npm run clean && webpack"
   },
   "author": "Sebastian Schürmann",
   "license": "MIT",
@@ -22,13 +24,17 @@
     "microbundle": "^0.13.0",
     "mocha": "^8.2.1",
     "nock": "^13.0.5",
+    "shx": "^0.3.3",
+    "ts-loader": "^8.0.13",
     "ts-mocha": "^8.0.0",
-    "typed-emitter": "^1.3.1"
+    "typed-emitter": "^1.3.1",
+    "typescript": "^4.1.3",
+    "webpack": "^4.4.2",
+    "webpack-cli": "^4.3.1"
   },
   "dependencies": {
     "@types/node": "^14.14.12",
     "axios": "^0.21.0",
-    "qs": "^6.9.4",
-    "typescript": "^4.1.3"
+    "qs": "^6.9.4"
   }
 }
