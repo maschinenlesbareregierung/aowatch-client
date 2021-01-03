@@ -11,7 +11,7 @@
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "build:node": "tsc --p ./tsconfig.node.json",
     "clean": "shx rm -rf _bundles dist dist-node",
-    "build": "npm run clean && webpack"
+    "build:web": "npm run clean && webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js"
   },
   "author": "Sebastian Schürmann",
   "license": "MIT",

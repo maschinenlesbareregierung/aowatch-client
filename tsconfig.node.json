@@ -1,6 +1,6 @@
 {
   "exclude": [
-    "test/**/*"
+    "__test__/**/*"
   ],
   "compilerOptions": {
     "outDir": "./dist-node",
