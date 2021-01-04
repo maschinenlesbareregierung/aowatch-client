@@ -1,8 +1,8 @@
 # @malereg/aowatch-client
 
-[![npm version](https://badge.fury.io/js/%40malereg%2Faowatch-client.svg)](https://badge.fury.io/js/%40malereg%2Faowatch-client)
-
 Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescript
+
+[![npm version](https://badge.fury.io/js/%40malereg%2Faowatch-client.svg)](https://badge.fury.io/js/%40malereg%2Faowatch-client)
 
 ## Installation
 
