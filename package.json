@@ -1,6 +1,6 @@
 {
   "name": "@malereg/aowatch-client",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "./dist-node/aowatch-client.js",
   "exports": {
@@ -14,8 +14,8 @@
     "build:web": "npm run clean && webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/maschinenlesbareregierung/aowatch-client.git"
+    "type": "git",
+    "url": "https://github.com/maschinenlesbareregierung/aowatch-client.git"
   },
   "author": "Sebastian Schürmann",
   "license": "MIT",
