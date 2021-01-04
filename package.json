@@ -1,11 +1,19 @@
 {
   "name": "@malereg/aowatch-client",
   "version": "1.0.13",
-  "description": "",
+  "description": "Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescript",
   "main": "./dist-node/aowatch-client.js",
   "exports": {
     ".": "./dist-node/aowatch-client.js"
   },
+  "keywords": [
+    "bundestag", 
+    "opendata",
+    "abgeordnetenwatch",
+    "politics",
+    "api",
+    "client"
+  ],
   "scripts": {
     "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./__test__/*.test.ts",
     "version": "auto-changelog -p && git add CHANGELOG.md",
