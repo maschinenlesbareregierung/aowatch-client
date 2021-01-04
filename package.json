@@ -13,6 +13,10 @@
     "clean": "shx rm -rf _bundles dist dist-node",
     "build:web": "npm run clean && webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/maschinenlesbareregierung/aowatch-client.git"
+  },
   "author": "Sebastian Schürmann",
   "license": "MIT",
   "devDependencies": {
