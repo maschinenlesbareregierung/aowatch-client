@@ -20,7 +20,7 @@
     "build:node": "tsc --p ./tsconfig.node.json",
     "clean": "shx rm -rf dist-web dist dist-node",
     "build:web": "npm run clean && webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js",
-    "build:docs": "typedoc src/aowatch-client.ts"
+    "build:docs": "typedoc src/* --includeVersion"
   },
   "repository": {
     "type": "git",
