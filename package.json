@@ -17,6 +17,7 @@
   "scripts": {
     "test": "./node_modules/ts-mocha/bin/ts-mocha -p ./tsconfig.json ./__test__/*.test.ts",
     "version": "auto-changelog -p && git add CHANGELOG.md",
+    "postversion": "git push && git push --tags",
     "build:node": "tsc --p ./tsconfig.node.json",
     "clean": "shx rm -rf dist-web dist dist-node",
     "build:web": "npm run clean && webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js",
