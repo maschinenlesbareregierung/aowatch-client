@@ -3,6 +3,7 @@
 Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescript
 
 [![npm version](https://badge.fury.io/js/%40malereg%2Faowatch-client.svg)](https://badge.fury.io/js/%40malereg%2Faowatch-client)
+[![GitHub stars](https://img.shields.io/github/stars/maschinenlesbareregierung/aowatch-client.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/maschinenlesbareregierung/aowatch-client/stargazers/)
 
 ## Installation
 
