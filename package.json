@@ -28,6 +28,7 @@
     "type": "git",
     "url": "https://github.com/maschinenlesbareregierung/aowatch-client.git"
   },
+  "homepage": "https://maschinenlesbareregierung.github.io/aowatch-client/",
   "author": "Sebastian Schürmann",
   "license": "MIT",
   "devDependencies": {
