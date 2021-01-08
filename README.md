@@ -13,7 +13,7 @@ npm install @malereg/aowatch-client --save
 
 ## Typescript
 
-In Typescritp you can use simple access methods for single endpoints
+In Typescript you can use simple access methods for single endpoints
 
 ```typescript
 import { politicianList, politician } from '@malereg/aowatch-client/src/entities/entity.politician';
