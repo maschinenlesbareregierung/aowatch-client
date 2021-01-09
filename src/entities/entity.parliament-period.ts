@@ -22,6 +22,9 @@ export type ParliamentPeriodResult = {
     data: EntityParliamentPeriod
 }
 
+/**
+ * Possible extra data that you can include on the response for a single item
+ */
 export type ParliamentPeriodRelatedDataParameter = 'show_information' | 'polls' | 'mandates' | 'committees' | 'constituencies';
 
 

@@ -23,6 +23,9 @@ export type PollResult = {
     data: EntityPoll
 }
 
+/**
+ * Possible extra data that you can include on the response for a single item
+ */
 export type PollRelatedDataParameter = 'show_information' | 'votes';
 
 export const pollList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<PollListResult> =>{

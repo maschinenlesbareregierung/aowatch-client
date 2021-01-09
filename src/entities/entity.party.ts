@@ -23,6 +23,9 @@ export type PartyResult = {
     data: EntityParty
 }
 
+/**
+ * Possible extra data that you can include on the response for a single item
+ */
 export type PartyRelatedDataParameter = 'show_information' | 'members';
 
 export const partyList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<PartyListResult> =>{

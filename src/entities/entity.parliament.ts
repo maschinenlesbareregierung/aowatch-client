@@ -23,6 +23,9 @@ export type ParliamentResult = {
     data: EntityParliament
 }
 
+/**
+ * Possible extra data that you can include on the response for a single item
+ */
 export type ParliamentRelatedDataParameter = 'show_information' | 'legislatures' | 'elections' | 'all_parliament_periods';
 
 export const parliamentList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<ParliamentListResult> =>{

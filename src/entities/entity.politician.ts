@@ -23,6 +23,9 @@ export type PoliticianResult = {
     data: EntityPolitician
 }
 
+/**
+ * Possible extra data that you can include on the response for a single item
+ */
 export type PoliticanRelatedDataParameter = 'show_information' | 'mandates' | 'candidacies' | 'all_candidacies_mandates' | 'votes';
 
 export const politicianList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<PoliticianListResult> =>{

@@ -23,6 +23,10 @@ export type CommitteeResult = {
     data: EntityCommittee
 }
 
+/**
+ * Possible extra data that you can include on the response for a single item
+ */
+
 export type CommitteeRelatedDataParameter = 'show_information' | 'committee_memberships' | 'polls';
 
 export const committeeList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<CommitteeListResult> =>{
