@@ -1,6 +1,6 @@
 {
   "name": "@malereg/aowatch-client",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescript",
   "main": "./dist-node/aowatch-client.js",
   "exports": {
