@@ -34,6 +34,15 @@ export type CountryResult = {
     data: EntityCountry
 }
 
+/**
+ * Get a list of Countries
+ * ```typescript
+ * response = await countryList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns CountryListResult as JSON
+ */
 export const countryList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<CountryListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -44,6 +53,14 @@ export const countryList = async (params?: PagerParameters|RangeParameters|null,
         .then((response:any)=>response as CountryListResult)      
 };
 
+/**
+ * Get a single Country
+ * ```typescript
+ * response = response = await country(5);
+ * ```
+ * @param id  Id of the Country.
+ * @returns CountryResult as JSON
+ */
 export const country = async (id: number): Promise<CountryResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
