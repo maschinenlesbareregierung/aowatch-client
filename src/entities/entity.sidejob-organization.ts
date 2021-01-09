@@ -34,6 +34,15 @@ export type SidejobOrganizationResult = {
     data: EntitySidejobOrganization
 }
 
+/**
+ * Get a list of SidejobOrganizations
+ * ```typescript
+ * response = await sidejobOrganizationList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns SidejobOrganizationListResult as JSON
+ */
 export const sidejobOrganizationList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<SidejobOrganizationListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -44,6 +53,14 @@ export const sidejobOrganizationList = async (params?: PagerParameters|RangePara
         .then((response:any)=>response as SidejobOrganizationListResult)      
 };
 
+/**
+ * Get a single SidejobOrganization
+ * ```typescript
+ * response = await sidejobOrganization(5);
+ * ```
+ * @param id  Id of the SidejobOrganization.
+ * @returns SidejobOrganizationResult as JSON
+ */
 export const sidejobOrganization = async (id: number): Promise<SidejobOrganizationResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
