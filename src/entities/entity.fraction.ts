@@ -26,6 +26,9 @@ export type FractionListResult = {
     data: EntityFraction[]
 }
 
+/**
+ * Single item result
+ */
 export type FractionResult = {
     meta: ResponseEntityMeta,
     data: EntityFraction

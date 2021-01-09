@@ -26,6 +26,9 @@ export type TopicListResult = {
     data: EntityTopic[]
 }
 
+/**
+ * Single item result
+ */
 export type TopicResult = {
     meta: ResponseEntityMeta,
     data: EntityTopic

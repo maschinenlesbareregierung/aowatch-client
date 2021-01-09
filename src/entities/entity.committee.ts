@@ -26,6 +26,9 @@ export type CommitteeListResult = {
     data: EntityCommittee[]
 }
 
+/**
+ * Single item result
+ */
 export type CommitteeResult = {
     meta: ResponseEntityMeta,
     data: EntityCommittee

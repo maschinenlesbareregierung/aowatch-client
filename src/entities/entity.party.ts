@@ -26,6 +26,9 @@ export type PartyListResult = {
     data: EntityParty[]
 }
 
+/**
+ * Single item result
+ */
 export type PartyResult = {
     meta: ResponseEntityMeta,
     data: EntityParty

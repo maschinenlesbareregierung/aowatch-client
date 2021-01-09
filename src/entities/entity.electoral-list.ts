@@ -26,6 +26,9 @@ export type ElectoralListListResult = {
     data: EntityElectoralList[]
 }
 
+/**
+ * Single item result
+ */
 export type ElectoralListResult = {
     meta: ResponseEntityMeta,
     data: EntityElectoralList

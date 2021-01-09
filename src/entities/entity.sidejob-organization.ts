@@ -26,6 +26,9 @@ export type SidejobOrganizationListResult = {
     data: EntitySidejobOrganization[]
 }
 
+/**
+ * Single item result
+ */
 export type SidejobOrganizationResult = {
     meta: ResponseEntityMeta,
     data: EntitySidejobOrganization

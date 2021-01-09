@@ -26,6 +26,9 @@ export type ParliamentListResult = {
     data: EntityParliament[]
 }
 
+/**
+ * Single item result
+ */
 export type ParliamentResult = {
     meta: ResponseEntityMeta,
     data: EntityParliament

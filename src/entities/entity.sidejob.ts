@@ -26,6 +26,9 @@ export type SidejobListResult = {
     data: EntitySidejob[]
 }
 
+/**
+ * Single item result
+ */
 export type SidejobResult = {
     meta: ResponseEntityMeta,
     data: EntitySidejob

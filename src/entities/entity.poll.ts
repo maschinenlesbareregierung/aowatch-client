@@ -26,6 +26,9 @@ export type PollListResult = {
     data: EntityPoll[]
 }
 
+/**
+ * Single item result
+ */
 export type PollResult = {
     meta: ResponseEntityMeta,
     data: EntityPoll

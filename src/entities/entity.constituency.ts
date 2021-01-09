@@ -26,6 +26,9 @@ export type ConstituencyListResult = {
     data: EntityConstituency[]
 }
 
+/**
+ * Single item result
+ */
 export type ConstituencyResult = {
     meta: ResponseEntityMeta,
     data: EntityConstituency

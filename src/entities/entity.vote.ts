@@ -25,7 +25,9 @@ export type VoteListResult = {
     meta: ResponseMeta,
     data: EntityVote[]
 }
-
+/**
+ * Single item result
+ */
 export type VoteResult = {
     meta: ResponseEntityMeta,
     data: EntityVote

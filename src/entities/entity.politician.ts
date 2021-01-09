@@ -26,6 +26,9 @@ export type PoliticianListResult = {
     data: EntityPolitician[]
 }
 
+/**
+ * Single item result
+ */
 export type PoliticianResult = {
     meta: ResponseEntityMeta,
     data: EntityPolitician

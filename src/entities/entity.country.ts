@@ -26,6 +26,9 @@ export type CountryListResult = {
     data: EntityCountry[]
 }
 
+/**
+ * Single item result
+ */
 export type CountryResult = {
     meta: ResponseEntityMeta,
     data: EntityCountry
