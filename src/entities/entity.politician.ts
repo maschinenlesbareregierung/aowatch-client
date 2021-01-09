@@ -39,6 +39,15 @@ export type PoliticianResult = {
  */
 export type PoliticanRelatedDataParameter = 'show_information' | 'mandates' | 'candidacies' | 'all_candidacies_mandates' | 'votes';
 
+/**
+ * Get a list of Politicians
+ * ```typescript
+ * response = await politicianList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns PoliticianListResult as JSON
+ */
 export const politicianList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<PoliticianListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -49,6 +58,15 @@ export const politicianList = async (params?: PagerParameters|RangeParameters|nu
         .then((response:any)=>response as PoliticianListResult)      
 };
 
+/**
+ * Get a single Politician
+ * ```typescript
+ * response = await politician(5);
+ * ```
+ * @param id  Id of the Politician.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns PoliticianResult as JSON
+ */
 export const politician = async (id: number, relatedData:PoliticanRelatedDataParameter|null=null): Promise<PoliticianResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
