@@ -39,6 +39,15 @@ export type PollResult = {
  */
 export type PollRelatedDataParameter = 'show_information' | 'votes';
 
+/**
+ * Get a list of Polls
+ * ```typescript
+ * response = await pollList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns PollListResult as JSON
+ */
 export const pollList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<PollListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -49,6 +58,15 @@ export const pollList = async (params?: PagerParameters|RangeParameters|null, so
         .then((response:any)=>response as PollListResult)      
 };
 
+/**
+ * Get a single Poll
+ * ```typescript
+ * response = await poll(5);
+ * ```
+ * @param id  Id of the Poll.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns PollResult as JSON
+ */
 export const poll = async (id: number, relatedData:PollRelatedDataParameter|null=null): Promise<PollResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
