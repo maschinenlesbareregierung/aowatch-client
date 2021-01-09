@@ -34,6 +34,15 @@ export type ElectoralListResult = {
     data: EntityElectoralList
 }
 
+/**
+ * Get a list of ElectoralLists
+ * ```typescript
+ * response = await electoralListList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns ElectoralListListResult as JSON
+ */
 export const electoralListList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<ElectoralListListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -44,6 +53,15 @@ export const electoralListList = async (params?: PagerParameters|RangeParameters
         .then((response:any)=>response as ElectoralListListResult)      
 };
 
+/**
+ * Get a single ElectoralList
+ * ```typescript
+ * response = response = await electoralList(5);
+ * ```
+ * @param id  Id of the ElectoralList
+ * @param relatedData Possible related Data you can include in the result
+ * @returns ElectoralListResult as JSON
+ */
 export const electoralList = async (id: number): Promise<ElectoralListResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
