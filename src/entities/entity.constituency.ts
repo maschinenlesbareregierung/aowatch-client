@@ -58,7 +58,7 @@ export const constituencyList = async (params?: PagerParameters|RangeParameters|
  * ```typescript
  * response = response = await constituency(5);
  * ```
- * @param id  Id of the CandidacyMandate.
+ * @param id  Id of the Constituency.
  * @returns ConstituencyResult as JSON
  */
 export const constituency = async (id: number): Promise<ConstituencyResult> =>{
