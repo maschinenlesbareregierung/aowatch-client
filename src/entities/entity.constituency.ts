@@ -34,6 +34,15 @@ export type ConstituencyResult = {
     data: EntityConstituency
 }
 
+/**
+ * Get a list of Constituencies
+ * ```typescript
+ * response = await constituencyList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns ConstituencyListResult as JSON
+ */
 export const constituencyList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<ConstituencyListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -44,6 +53,14 @@ export const constituencyList = async (params?: PagerParameters|RangeParameters|
         .then((response:any)=>response as ConstituencyListResult)      
 };
 
+/**
+ * Get a single Constituency
+ * ```typescript
+ * response = response = await constituency(5);
+ * ```
+ * @param id  Id of the CandidacyMandate.
+ * @returns ConstituencyResult as JSON
+ */
 export const constituency = async (id: number): Promise<ConstituencyResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
