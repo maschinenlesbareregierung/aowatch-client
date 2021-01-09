@@ -34,6 +34,15 @@ export type FractionResult = {
     data: EntityFraction
 }
 
+/**
+ * Get a list of Fractions
+ * ```typescript
+ * response = await fractionList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns FractionListResult as JSON
+ */
 export const fractionList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<FractionListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -44,6 +53,14 @@ export const fractionList = async (params?: PagerParameters|RangeParameters|null
         .then((response:any)=>response as FractionListResult)      
 };
 
+/**
+ * Get a single Fraction
+ * ```typescript
+ * response = response = await candidacyMandate(5);
+ * ```
+ * @param id  Id of the Fraction.
+ * @returns FractionResult as JSON
+ */
 export const fraction = async (id: number): Promise<FractionResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
