@@ -56,7 +56,7 @@ export const committeeMembershipList = async (params?: PagerParameters|RangePara
 /**
  * Get a single CommitteeMembership
  * ```typescript
- * response = response = await committeeMembership(5);
+ * response = await committeeMembership(5);
  * ```
  * @param id  Id of the CommitteeMembership
  * @returns CommitteeMembershipResult as JSON

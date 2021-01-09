@@ -56,7 +56,7 @@ export const countryList = async (params?: PagerParameters|RangeParameters|null,
 /**
  * Get a single Country
  * ```typescript
- * response = response = await country(5);
+ * response = await country(5);
  * ```
  * @param id  Id of the Country.
  * @returns CountryResult as JSON

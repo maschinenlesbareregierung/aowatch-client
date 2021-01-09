@@ -56,7 +56,7 @@ export const constituencyList = async (params?: PagerParameters|RangeParameters|
 /**
  * Get a single Constituency
  * ```typescript
- * response = response = await constituency(5);
+ * response = await constituency(5);
  * ```
  * @param id  Id of the Constituency.
  * @returns ConstituencyResult as JSON

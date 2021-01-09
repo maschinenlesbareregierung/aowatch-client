@@ -62,7 +62,7 @@ export const committeeList = async (params?: PagerParameters|RangeParameters|nul
 /**
  * Get a single Committee
  * ```typescript
- * response = response = await committee(5);
+ * response = await committee(5);
  * ```
  * @param id  Id of the Committee.
  * @param relatedData Possible related Data you can include in the result

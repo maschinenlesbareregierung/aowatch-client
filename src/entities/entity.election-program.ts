@@ -56,7 +56,7 @@ export const electionProgramList = async (params?: PagerParameters|RangeParamete
 /**
  * Get a single ElectionProgram
  * ```typescript
- * response = response = await electionProgram(5);
+ * response = await electionProgram(5);
  * ```
  * @param id  Id of the ElectionProgram.
  * @returns ElectionProgramResult as JSON

@@ -56,7 +56,7 @@ export const cityList = async (params?: PagerParameters|RangeParameters|null, so
 /**
  * Get a single City
  * ```typescript
- * response = response = await city(5);
+ * response = await city(5);
  * ```
  * @param id  Id of the City.
  * @returns CityResult as JSON

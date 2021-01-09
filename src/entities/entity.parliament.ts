@@ -61,7 +61,7 @@ export const parliamentList = async (params?: PagerParameters|RangeParameters|nu
 /**
  * Get a single Parliament
  * ```typescript
- * response = response = await parliament(5);
+ * response = await parliament(5);
  * ```
  * @param id  Id of the Parliament.
  * @param relatedData Possible related Data you can include in the result

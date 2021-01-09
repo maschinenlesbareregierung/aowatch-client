@@ -56,7 +56,7 @@ export const fractionList = async (params?: PagerParameters|RangeParameters|null
 /**
  * Get a single Fraction
  * ```typescript
- * response = response = await candidacyMandate(5);
+ * response = await candidacyMandate(5);
  * ```
  * @param id  Id of the Fraction.
  * @returns FractionResult as JSON

@@ -56,7 +56,7 @@ export const electoralListList = async (params?: PagerParameters|RangeParameters
 /**
  * Get a single ElectoralList
  * ```typescript
- * response = response = await electoralList(5);
+ * response = await electoralList(5);
  * ```
  * @param id  Id of the ElectoralList
  * @param relatedData Possible related Data you can include in the result

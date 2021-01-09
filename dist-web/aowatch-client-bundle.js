@@ -3718,7 +3718,7 @@ exports.candidacyMandateList = candidacyMandateList;
 /**
  * Get a single CandidacyMandate
  * ```typescript
- * response = response = await candidacyMandate(5);
+ * response = await candidacyMandate(5);
  * ```
  * @param id  Id of the CandidacyMandate.
  * @param relatedData Possible related Data you can include in the result
@@ -3777,7 +3777,7 @@ exports.cityList = cityList;
 /**
  * Get a single City
  * ```typescript
- * response = response = await city(5);
+ * response = await city(5);
  * ```
  * @param id  Id of the City.
  * @returns CityResult as JSON
