@@ -19,8 +19,7 @@
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "postversion": "git push && git push --tags && npm run build:docs && npm run gh-pages",
     "build:node": "tsc --p ./tsconfig.node.json",
-    "clean": "shx rm -rf dist-web/* dist dist-node",
-    "build:web": "npm run clean && webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js",
+    "build:web": "webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js",
     "build:docs": "typedoc src/* --includeVersion",
     "gh-pages": "node ./script/gh-pages.js"
   },
