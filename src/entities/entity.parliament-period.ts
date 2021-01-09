@@ -39,7 +39,15 @@ export type ParliamentPeriodResult = {
  */
 export type ParliamentPeriodRelatedDataParameter = 'show_information' | 'polls' | 'mandates' | 'committees' | 'constituencies';
 
-
+/**
+ * Get a list of ParliamentPeriod
+ * ```typescript
+ * response = await parliamentPeriodList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns ParliamentPeriodListResult as JSON
+ */
 export const parliamentPeriodList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<ParliamentPeriodResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -49,7 +57,15 @@ export const parliamentPeriodList = async (params?: PagerParameters|RangeParamet
         .then((response:any)=>response.data)
         .then((response:any)=>response as ParliamentPeriodListResult)      
 };
-
+/**
+ * Get a single ParliamentPeriod
+ * ```typescript
+ * response = response = await parliamentPeriod(5);
+ * ```
+ * @param id  Id of the ParliamentPeriod.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns ParliamentPeriodResult as JSON
+ */
 export const parliamentPeriod = async (id: number, relatedData:ParliamentPeriodRelatedDataParameter|null=null): Promise<ParliamentPeriodResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);
