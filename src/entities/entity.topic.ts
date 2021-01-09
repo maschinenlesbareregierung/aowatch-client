@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/topics'
 
-
+/**
+ * List result
+ */
 export type TopicListResult = {
     meta: ResponseMeta,
     data: EntityTopic[]

@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/polls'
 
-
+/**
+ * List result
+ */
 export type PollListResult = {
     meta: ResponseMeta,
     data: EntityPoll[]

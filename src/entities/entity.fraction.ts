@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/fractions'
 
-
+/**
+ * List result
+ */
 export type FractionListResult = {
     meta: ResponseMeta,
     data: EntityFraction[]

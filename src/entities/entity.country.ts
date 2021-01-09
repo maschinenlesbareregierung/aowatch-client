@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/countries'
 
-
+/**
+ * List result
+ */
 export type CountryListResult = {
     meta: ResponseMeta,
     data: EntityCountry[]

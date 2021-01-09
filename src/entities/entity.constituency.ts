@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/constituencies'
 
-
+/**
+ * List result
+ */
 export type ConstituencyListResult = {
     meta: ResponseMeta,
     data: EntityConstituency[]

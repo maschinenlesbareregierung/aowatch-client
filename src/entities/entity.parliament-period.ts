@@ -18,6 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parliament-periods'
 
+/**
+ * List result
+ */
 export type ParliamentPeriodListResult = {
     meta: ResponseMeta,
     data: EntityParliamentPeriod[]

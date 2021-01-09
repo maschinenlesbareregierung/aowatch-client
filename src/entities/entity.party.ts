@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parties'
 
-
+/**
+ * List result
+ */
 export type PartyListResult = {
     meta: ResponseMeta,
     data: EntityParty[]

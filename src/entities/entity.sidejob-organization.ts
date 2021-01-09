@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/sidejob-organizations'
 
-
+/**
+ * List result
+ */
 export type SidejobOrganizationListResult = {
     meta: ResponseMeta,
     data: EntitySidejobOrganization[]

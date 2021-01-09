@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/committee-memberships'
 
-
+/**
+ * List result
+ */
 export type CommitteeMembershipListResult = {
     meta: ResponseMeta,
     data: EntityCommitteeMembership[]

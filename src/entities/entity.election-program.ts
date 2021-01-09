@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/election-program'
 
-
+/**
+ * List result
+ */
 export type ElectionProgramListResult = {
     meta: ResponseMeta,
     data: EntityElectionProgram[]

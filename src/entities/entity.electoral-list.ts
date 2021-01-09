@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/electoral-lists'
 
-
+/**
+ * List result
+ */
 export type ElectoralListListResult = {
     meta: ResponseMeta,
     data: EntityElectoralList[]

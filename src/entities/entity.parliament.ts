@@ -18,7 +18,9 @@ import {
  */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parliaments'
 
-
+/**
+ * List result
+ */
 export type ParliamentListResult = {
     meta: ResponseMeta,
     data: EntityParliament[]
