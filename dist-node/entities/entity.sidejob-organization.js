@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/sidejob-organization)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/sidejob-organizations';
+/**
+ * Get a list of SidejobOrganizations
+ * ```typescript
+ * response = await sidejobOrganizationList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns SidejobOrganizationListResult as JSON
+ */
 var sidejobOrganizationList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,14 @@ var sidejobOrganizationList = function (params, sort, filter) { return __awaiter
     });
 }); };
 exports.sidejobOrganizationList = sidejobOrganizationList;
+/**
+ * Get a single SidejobOrganization
+ * ```typescript
+ * response = await sidejobOrganization(5);
+ * ```
+ * @param id  Id of the SidejobOrganization.
+ * @returns SidejobOrganizationResult as JSON
+ */
 var sidejobOrganization = function (id) { return __awaiter(void 0, void 0, void 0, function () {
     var requestUrl;
     return __generator(this, function (_a) {

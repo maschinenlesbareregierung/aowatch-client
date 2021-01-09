@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/election-program)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/election-program';
+/**
+ * Get a list of ElectionPrograms
+ * ```typescript
+ * response = await electionProgramList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns ElectionProgramListResult as JSON
+ */
 var electionProgramList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,14 @@ var electionProgramList = function (params, sort, filter) { return __awaiter(voi
     });
 }); };
 exports.electionProgramList = electionProgramList;
+/**
+ * Get a single ElectionProgram
+ * ```typescript
+ * response = await electionProgram(5);
+ * ```
+ * @param id  Id of the ElectionProgram.
+ * @returns ElectionProgramResult as JSON
+ */
 var electionProgram = function (id) { return __awaiter(void 0, void 0, void 0, function () {
     var requestUrl;
     return __generator(this, function (_a) {

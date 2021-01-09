@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/fraction)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/fractions';
+/**
+ * Get a list of Fractions
+ * ```typescript
+ * response = await fractionList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns FractionListResult as JSON
+ */
 var fractionList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,14 @@ var fractionList = function (params, sort, filter) { return __awaiter(void 0, vo
     });
 }); };
 exports.fractionList = fractionList;
+/**
+ * Get a single Fraction
+ * ```typescript
+ * response = await candidacyMandate(5);
+ * ```
+ * @param id  Id of the Fraction.
+ * @returns FractionResult as JSON
+ */
 var fraction = function (id) { return __awaiter(void 0, void 0, void 0, function () {
     var requestUrl;
     return __generator(this, function (_a) {

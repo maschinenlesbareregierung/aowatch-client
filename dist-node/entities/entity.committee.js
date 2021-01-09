@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/committee)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/committees';
+/**
+ * Get a list of Committees
+ * ```typescript
+ * response = await committeeList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns CommitteeListResult as JSON
+ */
 var committeeList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,15 @@ var committeeList = function (params, sort, filter) { return __awaiter(void 0, v
     });
 }); };
 exports.committeeList = committeeList;
+/**
+ * Get a single Committee
+ * ```typescript
+ * response = await committee(5);
+ * ```
+ * @param id  Id of the Committee.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns CommitteeResult as JSON
+ */
 var committee = function (id, relatedData) {
     if (relatedData === void 0) { relatedData = null; }
     return __awaiter(void 0, void 0, void 0, function () {

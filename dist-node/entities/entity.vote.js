@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/vote)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/votes';
+/**
+ * Get a list of Votes
+ * ```typescript
+ * response = await voteList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns VoteListResult as JSON
+ */
 var voteList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,14 @@ var voteList = function (params, sort, filter) { return __awaiter(void 0, void 0
     });
 }); };
 exports.voteList = voteList;
+/**
+ * Get a single Vote
+ * ```typescript
+ * response = await vote(5);
+ * ```
+ * @param id  Id of the CandidacyMandate.
+ * @returns VoteResult as JSON
+ */
 var vote = function (id) { return __awaiter(void 0, void 0, void 0, function () {
     var requestUrl;
     return __generator(this, function (_a) {

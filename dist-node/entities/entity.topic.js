@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/topic)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/topics';
+/**
+ * Get a list of Topics
+ * ```typescript
+ * response = await topicList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns TopicListResult as JSON
+ */
 var topicList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,19 +65,22 @@ var topicList = function (params, sort, filter) { return __awaiter(void 0, void 
     });
 }); };
 exports.topicList = topicList;
-var topic = function (id, relatedData) {
-    if (relatedData === void 0) { relatedData = null; }
-    return __awaiter(void 0, void 0, void 0, function () {
-        var requestUrl;
-        return __generator(this, function (_a) {
-            requestUrl = new URL(exports.url + "/" + id);
-            if (!!relatedData) {
-                requestUrl.search = 'related_data=' + relatedData;
-            }
-            return [2 /*return*/, axios.get(requestUrl.toString())
-                    .then(function (response) { return response.data; })
-                    .then(function (response) { return response; })];
-        });
+/**
+ * Get a single Topic
+ * ```typescript
+ * response = await candidacyMandate(5);
+ * ```
+ * @param id  Id of the Topic.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns TopicResult as JSON
+ */
+var topic = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+    var requestUrl;
+    return __generator(this, function (_a) {
+        requestUrl = new URL(exports.url + "/" + id);
+        return [2 /*return*/, axios.get(requestUrl.toString())
+                .then(function (response) { return response.data; })
+                .then(function (response) { return response; })];
     });
-};
+}); };
 exports.topic = topic;

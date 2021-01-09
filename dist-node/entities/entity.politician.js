@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/politician)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/politicians';
+/**
+ * Get a list of Politicians
+ * ```typescript
+ * response = await politicianList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns PoliticianListResult as JSON
+ */
 var politicianList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,15 @@ var politicianList = function (params, sort, filter) { return __awaiter(void 0, 
     });
 }); };
 exports.politicianList = politicianList;
+/**
+ * Get a single Politician
+ * ```typescript
+ * response = await politician(5);
+ * ```
+ * @param id  Id of the Politician.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns PoliticianResult as JSON
+ */
 var politician = function (id, relatedData) {
     if (relatedData === void 0) { relatedData = null; }
     return __awaiter(void 0, void 0, void 0, function () {

@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/electoral-list)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/electoral-lists';
+/**
+ * Get a list of ElectoralLists
+ * ```typescript
+ * response = await electoralListList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns ElectoralListListResult as JSON
+ */
 var electoralListList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,15 @@ var electoralListList = function (params, sort, filter) { return __awaiter(void 
     });
 }); };
 exports.electoralListList = electoralListList;
+/**
+ * Get a single ElectoralList
+ * ```typescript
+ * response = await electoralList(5);
+ * ```
+ * @param id  Id of the ElectoralList
+ * @param relatedData Possible related Data you can include in the result
+ * @returns ElectoralListResult as JSON
+ */
 var electoralList = function (id) { return __awaiter(void 0, void 0, void 0, function () {
     var requestUrl;
     return __generator(this, function (_a) {

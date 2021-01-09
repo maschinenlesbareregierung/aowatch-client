@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/poll)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/polls';
+/**
+ * Get a list of Polls
+ * ```typescript
+ * response = await pollList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns PollListResult as JSON
+ */
 var pollList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,15 @@ var pollList = function (params, sort, filter) { return __awaiter(void 0, void 0
     });
 }); };
 exports.pollList = pollList;
+/**
+ * Get a single Poll
+ * ```typescript
+ * response = await poll(5);
+ * ```
+ * @param id  Id of the Poll.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns PollResult as JSON
+ */
 var poll = function (id, relatedData) {
     if (relatedData === void 0) { relatedData = null; }
     return __awaiter(void 0, void 0, void 0, function () {

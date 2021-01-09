@@ -45,6 +45,15 @@ var create_request_query_1 = require("../create-request-query");
  * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/party)
  */
 exports.url = 'https://www.abgeordnetenwatch.de/api/v2/parties';
+/**
+ * Get a list of Parties
+ * ```typescript
+ * response = await partyList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns PartyListResult as JSON
+ */
 var partyList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
     var query, requesturl;
     return __generator(this, function (_a) {
@@ -56,6 +65,15 @@ var partyList = function (params, sort, filter) { return __awaiter(void 0, void 
     });
 }); };
 exports.partyList = partyList;
+/**
+ * Get a single Party
+ * ```typescript
+ * response = await party(5);
+ * ```
+ * @param id  Id of the Party.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns PartyResult as JSON
+ */
 var party = function (id, relatedData) {
     if (relatedData === void 0) { relatedData = null; }
     return __awaiter(void 0, void 0, void 0, function () {
