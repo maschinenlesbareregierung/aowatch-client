@@ -39,6 +39,15 @@ export type PartyResult = {
  */
 export type PartyRelatedDataParameter = 'show_information' | 'members';
 
+/**
+ * Get a list of Parties
+ * ```typescript
+ * response = await partyList();
+ * ```
+ * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
+ * @param sort  Sort simply by a property or more complex by a list of properties
+ * @returns PartyListResult as JSON
+ */
 export const partyList = async (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): Promise<PartyListResult> =>{
 
     const query = createRequestQuery(params, sort, filter);    
@@ -49,6 +58,15 @@ export const partyList = async (params?: PagerParameters|RangeParameters|null, s
         .then((response:any)=>response as PartyListResult)      
 };
 
+/**
+ * Get a single Party
+ * ```typescript
+ * response = await party(5);
+ * ```
+ * @param id  Id of the Party.
+ * @param relatedData Possible related Data you can include in the result
+ * @returns PartyResult as JSON
+ */
 export const party = async (id: number, relatedData:PartyRelatedDataParameter|null=null): Promise<PartyResult> =>{
     
     let requestUrl = new URL(`${url}/${id}`);

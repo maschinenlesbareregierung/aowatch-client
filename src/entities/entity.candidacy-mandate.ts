@@ -60,7 +60,7 @@ export const candidacyMandateList = async (params?: PagerParameters|RangeParamet
 /**
  * Get a single CandidacyMandate
  * ```typescript
- * response = response = await candidacyMandate(5);
+ * response = await candidacyMandate(5);
  * ```
  * @param id  Id of the CandidacyMandate.
  * @param relatedData Possible related Data you can include in the result
