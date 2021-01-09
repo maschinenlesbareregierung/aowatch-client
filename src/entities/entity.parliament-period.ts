@@ -10,6 +10,12 @@ import {
     FilterParameters, 
     OperatorFilterParameters
 } from '../types';
+
+/**
+ * Service Endpoint
+ * 
+ * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/parliament-period)
+ */
 export const url = 'https://www.abgeordnetenwatch.de/api/v2/parliament-periods'
 
 export type ParliamentPeriodListResult = {

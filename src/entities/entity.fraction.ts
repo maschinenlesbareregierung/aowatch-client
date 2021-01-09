@@ -10,7 +10,13 @@ import {
     FilterParameters, 
     OperatorFilterParameters
 } from '../types';
-export const url = 'https://www.abgeordnetenwatch.de/api/v2/fraction'
+
+/**
+ * Service Endpoint
+ * 
+ * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/fraction)
+ */
+export const url = 'https://www.abgeordnetenwatch.de/api/v2/fractions'
 
 
 export type FractionListResult = {

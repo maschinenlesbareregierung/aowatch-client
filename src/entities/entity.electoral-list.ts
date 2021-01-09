@@ -10,7 +10,13 @@ import {
     FilterParameters, 
     OperatorFilterParameters
 } from '../types';
-export const url = 'https://www.abgeordnetenwatch.de/api/v2/electoral-list'
+
+/**
+ * Service Endpoint
+ * 
+ * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/electoral-list)
+ */
+export const url = 'https://www.abgeordnetenwatch.de/api/v2/electoral-lists'
 
 
 export type ElectoralListListResult = {

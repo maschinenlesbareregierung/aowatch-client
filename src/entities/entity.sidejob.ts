@@ -10,7 +10,13 @@ import {
     FilterParameters, 
     OperatorFilterParameters
 } from '../types';
-export const url = 'https://www.abgeordnetenwatch.de/api/v2/vote'
+
+/**
+ * Service Endpoint
+ * 
+ * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/politician)
+ */
+export const url = 'https://www.abgeordnetenwatch.de/api/v2/sidejobs'
 
 
 export type SidejobListResult = {

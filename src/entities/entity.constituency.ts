@@ -10,7 +10,13 @@ import {
     FilterParameters, 
     OperatorFilterParameters
 } from '../types';
-export const url = 'https://www.abgeordnetenwatch.de/api/v2/constituency'
+
+/**
+ * Service Endpoint
+ * 
+ * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/constituency)
+ */
+export const url = 'https://www.abgeordnetenwatch.de/api/v2/constituencies'
 
 
 export type ConstituencyListResult = {
