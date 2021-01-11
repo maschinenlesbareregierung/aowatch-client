@@ -41,7 +41,7 @@ describe("listAll", ()=>{
             .get(pathSecondPage)
             .reply(200, secondPageresult);
     })
-    it.only("lists all parties returns the right amount of results", async ()=>{
+    it("lists all parties returns the right amount of results", async ()=>{
         const res = await listAll(partyList);
         expect(res.data.length).eq(199)
     });
