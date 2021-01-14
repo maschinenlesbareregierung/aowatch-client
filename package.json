@@ -6,7 +6,7 @@
   "exports": {
     ".": "./dist-node/aowatch-client.js",
     "./entities/": "./dist-node/entities/",
-    "./list-all/": "./dist-node/list-all.js"
+    "./list-all": "./dist-node/list-all.js"
   },
   "keywords": [
     "bundestag",
