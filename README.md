@@ -25,7 +25,7 @@ politician(100).then(console.log)
 In Node and browser builds, you should use the generic API object. It comes with the positive sideeffect of providing events.
 
 ```javascript
-const client = require('aowatch-client').AowatchCLient;
+const client = require('@malereg/aowatch-client').AowatchCLient;
 
 const c = new client();
 c.politician.item(100).then(console.log)

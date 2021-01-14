@@ -4,7 +4,8 @@
   "description": "Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescript",
   "main": "./dist-node/aowatch-client.js",
   "exports": {
-    ".": "./dist-node/aowatch-client.js"
+    ".": "./dist-node/aowatch-client.js",
+    "./entities/": "./dist-node/entities/"
   },
   "keywords": [
     "bundestag",
