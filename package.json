@@ -1,13 +1,12 @@
 {
   "name": "@malereg/aowatch-client",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescript",
   "main": "./dist-node/aowatch-client.js",
   "exports": {
     ".": "./dist-node/aowatch-client.js",
     "./entities/": "./dist-node/entities/",
     "./list-all/": "./dist-node/list-all.js"
-    
   },
   "keywords": [
     "bundestag",
