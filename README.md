@@ -7,9 +7,9 @@ Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescr
 
 Features: 
 
-* All API Methods available
-* Complete types for a good autocomplete experience in typescript
-* usable in node js
+* [All API Methods available](#user-content-all-api-methods-available)
+* [Complete types](https://maschinenlesbareregierung.github.io/aowatch-client/modules/types.html) for a good autocomplete experience in typescript
+* [usable in node js](#javascriptnode)
 * a export usable in the browser
 * Abgeordnetenwatch simple and complex filters implemented
 * extends the original api 
@@ -41,30 +41,47 @@ politician().then(console.log)
 Paging
 
 ```typescript
-import { politicianList, politician } from '@malereg/aowatch-client/src/entities/entity.politician';
-politician({
+import { politicianList } from '@malereg/aowatch-client/src/entities/entity.politician';
+politicianList({
   page: 0,
   pager_limit: 10
 }).then(console.log)
 ```
 
-Sorting: 
+Sorting
 
 ```typescript
-import { politicianList, politician } from '@malereg/aowatch-client/src/entities/entity.politician';
-politician(null, {
+import { politicianList } from '@malereg/aowatch-client/src/entities/entity.politician';
+politicianList(null, {
   sort_by: 'id',
   sort_direction: 'asc'
 }).then(console.log)
 ```
 
-## Typescript
+# Filtering
 
-In Typescript you can use simple access methods for single endpoints
+Simple equal filters on a property.
+
+
+All female politicians
 
 ```typescript
-import { politicianList, politician } from '@malereg/aowatch-client/src/entities/entity.politician';
-politician(100).then(console.log)
+import { politicianList } from '@malereg/aowatch-client/src/entities/entity.politician';
+politicianList(null, null, {
+  sex: "f"
+}).then(console.log)
+```
+
+More compleext filters can be set up as well with comparators.
+
+```typescript
+import { politicianList } from '@malereg/aowatch-client/src/entities/entity.politician';
+politicianList(null, null, [{
+  field: 'year_of_birth',
+  operator: 'gt',
+  value: 1983
+}
+]).then(console.log)
 ```
 
 ## Javascript/Node
