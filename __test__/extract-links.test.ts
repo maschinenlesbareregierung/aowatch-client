@@ -19,8 +19,7 @@ describe("extract links", ()=>{
             .reply(200, result);
         
     });
-    it("extract links", async ()=>{ 
-;
+    it("extract links", async ()=>{
         const res = await extractLinks(testPage);
         expect(res.length).to.eq(5)
     });

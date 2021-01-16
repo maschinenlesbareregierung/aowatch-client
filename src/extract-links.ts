@@ -1,8 +1,12 @@
 import {EntityPolitician } from './types';
 const axios = require('axios').default;
 const cheerio = require("cheerio");
-
-export const extractLinks = async (url: string)=>{
+/**
+ * Extracts external links
+ * @param url url at abgeordnetenwatch.de to find external links 
+ * @returns 
+ */
+export const extractLinks = async (url: string): Promise<string[]> =>{
     const html = await axios.get(url).then((response:any)=>response.data)    
     const selector = cheerio.load(html);
     const searchResults = selector("ul.arrow-list--links > li").find("a");
