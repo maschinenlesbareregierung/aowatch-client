@@ -22,6 +22,42 @@ Features:
 npm install @malereg/aowatch-client --save
 ```
 
+# All api methods available
+
+## fetch one item
+
+```typescript
+import { politicianList, politician } from '@malereg/aowatch-client/src/entities/entity.politician';
+politician(100).then(console.log)
+```
+
+## fetch a list
+
+```typescript
+import { politicianList, politician } from '@malereg/aowatch-client/src/entities/entity.politician';
+politician().then(console.log)
+```
+
+Paging
+
+```typescript
+import { politicianList, politician } from '@malereg/aowatch-client/src/entities/entity.politician';
+politician({
+  page: 0,
+  pager_limit: 10
+}).then(console.log)
+```
+
+Sorting: 
+
+```typescript
+import { politicianList, politician } from '@malereg/aowatch-client/src/entities/entity.politician';
+politician(null, {
+  sort_by: 'id',
+  sort_direction: 'asc'
+}).then(console.log)
+```
+
 ## Typescript
 
 In Typescript you can use simple access methods for single endpoints
