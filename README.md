@@ -5,6 +5,17 @@ Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescr
 [![npm version](https://badge.fury.io/js/%40malereg%2Faowatch-client.svg)](https://badge.fury.io/js/%40malereg%2Faowatch-client)
 [![GitHub stars](https://img.shields.io/github/stars/maschinenlesbareregierung/aowatch-client.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/maschinenlesbareregierung/aowatch-client/stargazers/)
 
+Features: 
+
+* All API Methods available
+* Complete types for a good autocomplete experience in typescript
+* usable in node js
+* a export usable in the browser
+* Abgeordnetenwatch simple and complex filters implemented
+* extends the original api 
+  * get all data of a specific type
+  * get the website links of a politician
+
 ## Installation
 
 ```
