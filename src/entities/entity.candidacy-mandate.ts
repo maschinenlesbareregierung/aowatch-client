@@ -2,6 +2,8 @@
  * Candicay mandate related methods
  * [Abgeordnetenwatch API Documentation](https://www.abgeordnetenwatch.de/api/entitaeten/candidacy-mandate)
  */
+
+ /** imports */
 const axios = require('axios').default;
 import { createRequestQuery } from '../create-request-query';
 import { 
