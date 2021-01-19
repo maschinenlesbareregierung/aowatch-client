@@ -1,3 +1,10 @@
+/**
+ * Election program related methods
+ * 
+ * [Abgeordnetenwatch API Documentation](https://www.abgeordnetenwatch.de/api/entitaeten/election-program)
+ */
+
+ /** imports */
 const axios = require('axios').default;
 import { createRequestQuery } from '../create-request-query';
 import { 

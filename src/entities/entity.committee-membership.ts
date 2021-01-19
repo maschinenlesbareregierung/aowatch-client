@@ -1,3 +1,10 @@
+/**
+ * Commitee membership related methods
+ * 
+ * [Abgeordnetenwatch API Documentation](https://www.abgeordnetenwatch.de/api/entitaeten/commitee-membership)
+ */
+
+ /** imports */
 const axios = require('axios').default;
 import { createRequestQuery } from '../create-request-query';
 import { 

@@ -1,3 +1,10 @@
+/**
+ * Country related methods
+ * 
+ * [Abgeordnetenwatch API Documentation](https://www.abgeordnetenwatch.de/api/entitaeten/country)
+ */
+
+ /** imports */
 const axios = require('axios').default;
 import { createRequestQuery } from '../create-request-query';
 import { 
