@@ -13,8 +13,8 @@ Features:
 * a export usable in the browser
 * [Abgeordnetenwatch simple and complex filters implemented](#filtering)
 * extends the original api 
-  * get all data of a specific type
-  * get the website links of a politician
+  * [get all data of a specific type](#get-all-data-of-a-specific-type)
+  * [get the website links of a politician](#get-website-links-of-politicians)
 
 ## Installation
 
