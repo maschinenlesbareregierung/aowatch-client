@@ -5,6 +5,9 @@ Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescr
 [![npm version](https://badge.fury.io/js/%40malereg%2Faowatch-client.svg)](https://badge.fury.io/js/%40malereg%2Faowatch-client)
 [![GitHub stars](https://img.shields.io/github/stars/maschinenlesbareregierung/aowatch-client.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/maschinenlesbareregierung/aowatch-client/stargazers/)
 
+* [Abgeordetenwatch Website](https://www.abgeordnetenwatch.de/)
+* [Abgeordetenwatch API Documentation](https://www.abgeordnetenwatch.de/api)
+
 Features: 
 
 * [All API Methods available](#user-content-all-api-methods-available)
