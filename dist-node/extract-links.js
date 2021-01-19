@@ -1,9 +1,4 @@
 "use strict";
-/**
- * Commitee related methods
- *
- * [Abgeordnetenwatch API Documentation](https://www.abgeordnetenwatch.de/api/entitaeten/commitee)
- */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -41,58 +36,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.committee = exports.committeeList = exports.url = void 0;
-/** imports */
+exports.extractLinks = void 0;
 var axios = require('axios').default;
-var create_request_query_1 = require("../create-request-query");
+var cheerio = require("cheerio");
 /**
- * Service Endpoint
- *
- * [Abgeordnetenwatch API documentation](https://www.abgeordnetenwatch.de/api/entitaeten/committee)
+ * Extracts external links
+ * @param url url at abgeordnetenwatch.de to find external links
+ * @returns
  */
-exports.url = 'https://www.abgeordnetenwatch.de/api/v2/committees';
-/**
- * Get a list of Committees
- * ```typescript
- * response = await committeeList();
- * ```
- * @param params  PagerParameters for Paging, RangeParameters for  limiting the results or null
- * @param sort  Sort simply by a property or more complex by a list of properties
- * @returns CommitteeListResult as JSON
- */
-var committeeList = function (params, sort, filter) { return __awaiter(void 0, void 0, void 0, function () {
-    var query, requesturl;
+var extractLinks = function (url) { return __awaiter(void 0, void 0, void 0, function () {
+    var html, selector, searchResults, res;
     return __generator(this, function (_a) {
-        query = create_request_query_1.createRequestQuery(params, sort, filter);
-        requesturl = !!query ? exports.url + "?" + query : exports.url;
-        return [2 /*return*/, axios.get(requesturl)
-                .then(function (response) { return response.data; })
-                .then(function (response) { return response; })];
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, axios.get(url).then(function (response) { return response.data; })];
+            case 1:
+                html = _a.sent();
+                selector = cheerio.load(html);
+                searchResults = selector("ul.arrow-list--links > li").find("a");
+                res = [];
+                searchResults.map(function (index, data) {
+                    res.push(data.attribs.href);
+                });
+                return [2 /*return*/, res.filter(function (url) { return url.match('http'); })];
+        }
     });
 }); };
-exports.committeeList = committeeList;
-/**
- * Get a single Committee
- * ```typescript
- * response = await committee(5);
- * ```
- * @param id  Id of the Committee.
- * @param relatedData Possible related Data you can include in the result
- * @returns CommitteeResult as JSON
- */
-var committee = function (id, relatedData) {
-    if (relatedData === void 0) { relatedData = null; }
-    return __awaiter(void 0, void 0, void 0, function () {
-        var requestUrl;
-        return __generator(this, function (_a) {
-            requestUrl = new URL(exports.url + "/" + id);
-            if (!!relatedData) {
-                requestUrl.search = 'related_data=' + relatedData;
-            }
-            return [2 /*return*/, axios.get(requestUrl.toString())
-                    .then(function (response) { return response.data; })
-                    .then(function (response) { return response; })];
-        });
-    });
-};
-exports.committee = committee;
+exports.extractLinks = extractLinks;

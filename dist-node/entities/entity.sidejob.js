@@ -1,4 +1,9 @@
 "use strict";
+/**
+ * Sidejob related methods
+ *
+ * [Abgeordnetenwatch API Documentation](https://www.abgeordnetenwatch.de/api/entitaeten/sidejob)
+ */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -37,6 +42,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sidejob = exports.sidejobList = exports.url = void 0;
+/** imports */
 var axios = require('axios').default;
 var create_request_query_1 = require("../create-request-query");
 /**
