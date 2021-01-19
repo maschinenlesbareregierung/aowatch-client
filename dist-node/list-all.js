@@ -43,8 +43,21 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.listAll = void 0;
-var listAll = function (listFunction) { return __awaiter(void 0, void 0, void 0, function () {
+exports.listAll = exports.getEmitter = void 0;
+var events_1 = require("events");
+/**
+ * Get a Event Emitter to implement logging
+ */
+var getEmitter = function () {
+    return new events_1.EventEmitter();
+};
+exports.getEmitter = getEmitter;
+/**
+ * List all data from the api using the paging mechanic
+ * @param listFunction Function from enetities that you want to get all data from
+ * @param emitter Optional event emitter to implement logging
+ */
+var listAll = function (listFunction, emitter) { return __awaiter(void 0, void 0, void 0, function () {
     var res, result, count, total, pages, lastPage, pageParameters, tempResults, i, pageresult, resultData, resultMeta;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -54,6 +67,9 @@ var listAll = function (listFunction) { return __awaiter(void 0, void 0, void 0,
                 result = res.meta.result;
                 count = result.count, total = result.total;
                 pages = total / count;
+                if (emitter) {
+                    emitter.emit('count', pages);
+                }
                 lastPage = Math.ceil(pages);
                 pageParameters = __spreadArrays(Array(lastPage)).map(function (_, i) {
                     return {
@@ -69,6 +85,9 @@ var listAll = function (listFunction) { return __awaiter(void 0, void 0, void 0,
                 return [4 /*yield*/, listFunction(pageParameters[i])];
             case 3:
                 pageresult = _a.sent();
+                if (emitter) {
+                    emitter.emit('page', pageresult.meta);
+                }
                 tempResults.push(pageresult);
                 _a.label = 4;
             case 4:
