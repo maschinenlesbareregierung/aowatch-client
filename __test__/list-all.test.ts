@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { listAll } from '../src/list-all'
+import { listAll, getEmitter } from '../src/list-all'
 import { partyList, url } from '../src/entities/entity.party';
 import {readFileSync} from 'fs';
 import { parse } from 'url';
@@ -7,7 +7,7 @@ import { parse } from 'url';
 import  nock from 'nock';
 
 describe("listAll", ()=>{
-    before(()=>{
+    beforeEach(()=>{
         const baseResult = readFileSync('./__test__/fixtures/list-all/parties.json');
         
         const parsed = parse(url)
@@ -44,5 +44,19 @@ describe("listAll", ()=>{
     it("lists all parties returns the right amount of results", async ()=>{
         const res = await listAll(partyList);
         expect(res.data.length).eq(199)
+    });
+
+    it("adding a emitter works", async ()=>{
+        const emitter = getEmitter();
+        const res = await listAll(partyList, emitter);
+        expect(res.data.length).eq(199)
+    });
+
+    it("fires the count event", (done)=>{
+        const emitter = getEmitter();
+        emitter.on('count', ()=>{
+            done();
+        });
+        listAll(partyList, emitter);
     });
 })
