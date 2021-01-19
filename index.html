@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@malereg/aowatch-client - v1.2.7</title>
-	<meta name="description" content="Documentation for @malereg/aowatch-client - v1.2.7">
+	<title>@malereg/aowatch-client - v1.2.8</title>
+	<meta name="description" content="Documentation for @malereg/aowatch-client - v1.2.8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 	<script async src="assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@malereg/aowatch-client - v1.2.7</a>
+					<a href="index.html" class="title">@malereg/aowatch-client - v1.2.8</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -50,7 +50,7 @@
 	</div>
 	<div class="tsd-page-title">
 		<div class="container">
-			<h1>@malereg/aowatch-client - v1.2.7</h1>
+			<h1>@malereg/aowatch-client - v1.2.8</h1>
 		</div>
 	</div>
 </header>
@@ -64,16 +64,20 @@
 				<p>Abgeordnetenwatch TypeScript/JavaScript API client for Browser, Node and Typescript</p>
 				<p><a href="https://badge.fury.io/js/%40malereg%2Faowatch-client"><img src="https://badge.fury.io/js/%40malereg%2Faowatch-client.svg" alt="npm version"></a>
 				<a href="https://GitHub.com/maschinenlesbareregierung/aowatch-client/stargazers/"><img src="https://img.shields.io/github/stars/maschinenlesbareregierung/aowatch-client.svg?style=social&label=Star&maxAge=2592000" alt="GitHub stars"></a></p>
+				<ul>
+					<li><a href="https://www.abgeordnetenwatch.de/">Abgeordetenwatch Website</a></li>
+					<li><a href="https://www.abgeordnetenwatch.de/api">Abgeordetenwatch API Documentation</a></li>
+				</ul>
 				<p>Features: </p>
 				<ul>
 					<li><a href="#user-content-all-api-methods-available">All API Methods available</a></li>
 					<li><a href="https://maschinenlesbareregierung.github.io/aowatch-client/modules/types.html">Complete types</a> for a good autocomplete experience in typescript</li>
 					<li><a href="#javascriptnode">usable in node js</a></li>
 					<li>a export usable in the browser</li>
-					<li>Abgeordnetenwatch simple and complex filters implemented</li>
+					<li><a href="#filtering">Abgeordnetenwatch simple and complex filters implemented</a></li>
 					<li>extends the original api <ul>
-							<li>get all data of a specific type</li>
-							<li>get the website links of a politician</li>
+							<li><a href="#get-all-data-of-a-specific-type">get all data of a specific type</a></li>
+							<li><a href="#get-website-links-of-politicians">get the website links of a politician</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -121,7 +125,7 @@
 <span style="color: #000000">  </span><span style="color: #001080">sex:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;f&quot;</span>
 <span style="color: #000000">}).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">log</span><span style="color: #000000">)</span>
 </code></pre>
-				<p>More compleext filters can be set up as well with comparators.</p>
+				<p>More complex filters can be set up as well with comparators.</p>
 				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">politicianList</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@malereg/aowatch-client/src/entities/entity.politician&#039;</span><span style="color: #000000">;</span>
 <span style="color: #795E26">politicianList</span><span style="color: #000000">(</span><span style="color: #0000FF">null</span><span style="color: #000000">, </span><span style="color: #0000FF">null</span><span style="color: #000000">, [{</span>
 <span style="color: #000000">  </span><span style="color: #001080">field:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;year_of_birth&#039;</span><span style="color: #000000">,</span>
@@ -129,6 +133,27 @@
 <span style="color: #000000">  </span><span style="color: #001080">value:</span><span style="color: #000000"> </span><span style="color: #098658">1983</span>
 <span style="color: #000000">}</span>
 <span style="color: #000000">]).</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #001080">log</span><span style="color: #000000">)</span>
+</code></pre>
+				<a href="#extends-the-original-api" id="extends-the-original-api" style="color: inherit; text-decoration: none;">
+					<h1>Extends the original API</h1>
+				</a>
+				<a href="#get-all-data-of-a-specific-type" id="get-all-data-of-a-specific-type" style="color: inherit; text-decoration: none;">
+					<h2>get all data of a specific type</h2>
+				</a>
+				<p>If you need all the data of one specific endpoint, you can simply use <a href="https://en.wikipedia.org/wiki/Currying">currying</a> to do so using the listAll method. It will make sure all data is loaded and the metadata is properly updated.</p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">listAll</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@malereg/aowatch-client/src/list-all&#039;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">partyList</span><span style="color: #000000">, </span><span style="color: #001080">url</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@malereg/aowatch-client//src/entities/entity.party&#039;</span><span style="color: #000000">;</span>
+<span style="color: #008000">// get all parties</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">res</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">listAll</span><span style="color: #000000">(</span><span style="color: #001080">partyList</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#get-website-links-of-politicians" id="get-website-links-of-politicians" style="color: inherit; text-decoration: none;">
+					<h2>get website links of politicians</h2>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">extractLinks</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@malereg/aowatch-client/src/extract-links&#039;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">politician</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@malereg/aowatch-client//src/entities/entity.politician&#039;</span><span style="color: #000000">;</span>
+<span style="color: #008000">// load the politician</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">politician</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">politician</span><span style="color: #000000">(</span><span style="color: #098658">100</span><span style="color: #000000">).</span><span style="color: #001080">data</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">links</span><span style="color: #000000"> = </span><span style="color: #795E26">extractLinks</span><span style="color: #000000">(</span><span style="color: #001080">politician</span><span style="color: #000000">.</span><span style="color: #001080">abgeordnetenwatch_url</span><span style="color: #000000">)</span>
 </code></pre>
 				<a href="#javascriptnode" id="javascriptnode" style="color: inherit; text-decoration: none;">
 					<h2>Javascript/Node</h2>
