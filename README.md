@@ -11,7 +11,7 @@ Features:
 * [Complete types](https://maschinenlesbareregierung.github.io/aowatch-client/modules/types.html) for a good autocomplete experience in typescript
 * [usable in node js](#javascriptnode)
 * a export usable in the browser
-* Abgeordnetenwatch simple and complex filters implemented
+* [Abgeordnetenwatch simple and complex filters implemented](#filtering)
 * extends the original api 
   * get all data of a specific type
   * get the website links of a politician
@@ -72,7 +72,7 @@ politicianList(null, null, {
 }).then(console.log)
 ```
 
-More compleext filters can be set up as well with comparators.
+More complex filters can be set up as well with comparators.
 
 ```typescript
 import { politicianList } from '@malereg/aowatch-client/src/entities/entity.politician';
@@ -82,6 +82,29 @@ politicianList(null, null, [{
   value: 1983
 }
 ]).then(console.log)
+```
+
+# Extends the original API
+
+## get all data of a specific type 
+
+If you need all the data of one specific endpoint, you can simply use [currying](https://en.wikipedia.org/wiki/Currying) to do so using the listAll method. It will make sure all data is loaded and the metadata is properly updated.
+
+```typescript
+import { listAll } from '@malereg/aowatch-client/src/list-all'
+import { partyList, url } from '@malereg/aowatch-client//src/entities/entity.party';
+// get all parties
+const res = await listAll(partyList);
+```
+
+## get website links of politicians
+
+```typescript
+import { extractLinks } from '@malereg/aowatch-client/src/extract-links'
+import { politician } from '@malereg/aowatch-client//src/entities/entity.politician';
+// load the politician
+const politician = await politician(100).data;
+const links = extractLinks(politician.abgeordnetenwatch_url)
 ```
 
 ## Javascript/Node
