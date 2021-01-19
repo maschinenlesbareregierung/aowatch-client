@@ -1,5 +1,6 @@
 /**
  * Candicay mandate related methods
+ * 
  * [Abgeordnetenwatch API Documentation](https://www.abgeordnetenwatch.de/api/entitaeten/candidacy-mandate)
  */
 
