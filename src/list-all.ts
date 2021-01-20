@@ -27,7 +27,7 @@ export const listAll = async (listFunction: Function, emitter?:EventEmitter)=>{
 
     const { count, total } = result;
     // calculate number of requests
-    const pages = total / count;
+    const pages = Math.ceil(total / count);
 
     if (emitter) {
       emitter.emit('count', pages)
