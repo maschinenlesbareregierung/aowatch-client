@@ -66,7 +66,7 @@ var listAll = function (listFunction, emitter) { return __awaiter(void 0, void 0
                 res = _a.sent();
                 result = res.meta.result;
                 count = result.count, total = result.total;
-                pages = total / count;
+                pages = Math.ceil(total / count);
                 if (emitter) {
                     emitter.emit('count', pages);
                 }
