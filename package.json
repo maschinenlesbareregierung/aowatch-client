@@ -40,7 +40,6 @@
     "@types/qs": "^6.9.5",
     "auto-changelog": "^2.2.1",
     "chai": "^4.2.0",
-    "microbundle": "^0.13.0",
     "mocha": "^8.2.1",
     "nock": "^13.0.5",
     "shx": "^0.3.3",
