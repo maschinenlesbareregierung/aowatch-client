@@ -45,6 +45,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.listAll = exports.getEmitter = void 0;
 var events_1 = require("events");
+var PromisePool = require('promise-pool-executor');
 /**
  * Get a Event Emitter to implement logging
  */
@@ -52,13 +53,8 @@ var getEmitter = function () {
     return new events_1.EventEmitter();
 };
 exports.getEmitter = getEmitter;
-/**
- * List all data from the api using the paging mechanic
- * @param listFunction Function from enetities that you want to get all data from
- * @param emitter Optional event emitter to implement logging
- */
-var listAll = function (listFunction, emitter) { return __awaiter(void 0, void 0, void 0, function () {
-    var res, result, count, total, pages, lastPage, pageParameters, tempResults, i, pageresult, resultData, resultMeta;
+var countPages = function (listFunction) { return __awaiter(void 0, void 0, void 0, function () {
+    var res, result, count, total, pages;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, listFunction()];
@@ -67,44 +63,72 @@ var listAll = function (listFunction, emitter) { return __awaiter(void 0, void 0
                 result = res.meta.result;
                 count = result.count, total = result.total;
                 pages = Math.ceil(total / count);
-                if (emitter) {
-                    emitter.emit('count', pages);
-                }
-                lastPage = Math.ceil(pages);
-                pageParameters = __spreadArrays(Array(lastPage)).map(function (_, i) {
-                    return {
-                        page: i,
-                        pager_limit: count
-                    };
-                });
-                tempResults = [];
-                i = 0;
-                _a.label = 2;
-            case 2:
-                if (!(i <= pageParameters.length - 1)) return [3 /*break*/, 5];
-                return [4 /*yield*/, listFunction(pageParameters[i])];
-            case 3:
-                pageresult = _a.sent();
-                if (emitter) {
-                    emitter.emit('page', pageresult.meta);
-                }
-                tempResults.push(pageresult);
-                _a.label = 4;
-            case 4:
-                i++;
-                return [3 /*break*/, 2];
-            case 5:
-                resultData = [];
-                tempResults.map(function (result) {
-                    resultData.push.apply(resultData, result.data);
-                });
-                resultMeta = res.meta;
-                resultMeta.result.count = resultData.length;
                 return [2 /*return*/, {
-                        meta: resultMeta,
-                        data: resultData
+                        count: count, pages: pages
                     }];
         }
     });
 }); };
+/**
+ * List all data from the api using the paging mechanic
+ * @param listFunction Function from enetities that you want to get all data from
+ * @param emitter Optional event emitter to implement logging
+ */
+var listAll = function (listFunction, concurrency, emitter) {
+    if (concurrency === void 0) { concurrency = 2; }
+    return __awaiter(void 0, void 0, void 0, function () {
+        var _a, count, pages, pool, lastPage, pageParameters, results, resultData, resultMeta;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, countPages(listFunction)];
+                case 1:
+                    _a = _b.sent(), count = _a.count, pages = _a.pages;
+                    if (emitter) {
+                        emitter.emit('count', pages);
+                    }
+                    pool = new PromisePool.PromisePoolExecutor({
+                        concurrencyLimit: concurrency
+                    });
+                    lastPage = Math.ceil(pages);
+                    pageParameters = __spreadArrays(Array(lastPage)).map(function (_, i) {
+                        return {
+                            page: i,
+                            pager_limit: count
+                        };
+                    });
+                    return [4 /*yield*/, pool.addEachTask({
+                            data: pageParameters,
+                            generator: function (pagingParameters, i) { return __awaiter(void 0, void 0, void 0, function () {
+                                var pageresult;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0: return [4 /*yield*/, listFunction(pageParameters[i])];
+                                        case 1:
+                                            pageresult = _a.sent();
+                                            if (emitter) {
+                                                emitter.emit('page', pageresult.meta);
+                                            }
+                                            return [2 /*return*/, pageresult];
+                                    }
+                                });
+                            }); }
+                        }).promise()
+                        // iterate and get all data
+                    ];
+                case 2:
+                    results = _b.sent();
+                    resultData = [];
+                    results.map(function (result) {
+                        resultData.push.apply(resultData, result.data);
+                        resultMeta = result.meta;
+                    });
+                    resultMeta.result.count = resultData.length;
+                    return [2 /*return*/, {
+                            meta: resultMeta,
+                            data: resultData
+                        }];
+            }
+        });
+    });
+};
 exports.listAll = listAll;
