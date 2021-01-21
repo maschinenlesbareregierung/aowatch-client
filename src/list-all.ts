@@ -1,6 +1,7 @@
 import { PagerParameters, MetaResult } from './types'
 import {EventEmitter} from "events"
 import TypedEmitter from "typed-emitter"
+const PromisePool = require('promise-pool-executor');
 
 interface MessageEvents {
     error: (error: Error) => void,
@@ -15,23 +16,33 @@ export const getEmitter = (): EventEmitter => {
     return new EventEmitter() as TypedEmitter<MessageEvents>
 }
 
+const countPages = async (listFunction: Function) => {
+    const res = await listFunction();
+    let {result} = res.meta;
+    const { count, total } = result;
+    // calculate number of requests
+    const pages = Math.ceil(total / count);
+    return {
+        count, pages
+    }
+}
+
 /**
  * List all data from the api using the paging mechanic
  * @param listFunction Function from enetities that you want to get all data from 
  * @param emitter Optional event emitter to implement logging
  */
-export const listAll = async (listFunction: Function, emitter?:EventEmitter)=>{
+export const listAll = async (listFunction: Function, concurrency:number = 2, emitter?:EventEmitter)=>{
     // fetch first dataset 
-    const res = await listFunction();
-    let {result} = res.meta;
-
-    const { count, total } = result;
-    // calculate number of requests
-    const pages = Math.ceil(total / count);
+    const  { count, pages } = await countPages(listFunction)
 
     if (emitter) {
       emitter.emit('count', pages)
     }
+
+    const pool = new PromisePool.PromisePoolExecutor({
+        concurrencyLimit: concurrency
+    });
 
     const lastPage = Math.ceil(pages);
     // generate parameter sets for paging
@@ -41,22 +52,27 @@ export const listAll = async (listFunction: Function, emitter?:EventEmitter)=>{
             pager_limit: count
         }
     });
-    const tempResults = [];
     
-    for (var i = 0; i<=pageParameters.length-1; i++) {
-        const pageresult = await listFunction(pageParameters[i]);
-        if (emitter) {
-            emitter.emit('page', pageresult.meta)
-        }      
-        tempResults.push(pageresult)   
-    }
+    const results = await pool.addEachTask({
+        data: pageParameters,
+        generator: async (pagingParameters: PagerParameters, i: number) => {
+            const pageresult = await listFunction(pageParameters[i]);
+            if (emitter) {
+                emitter.emit('page', pageresult.meta)
+            }
+            return pageresult;
+        }
+    }).promise()
+
     // iterate and get all data
     const resultData: any = [];
-    tempResults.map(result => {
+    let resultMeta: any;
+
+    results.map((result: any) => {
         resultData.push(...result.data)
+        resultMeta = result.meta;
     }); 
     
-    const resultMeta = res.meta;
     resultMeta.result.count = resultData.length
     return  {
         meta: resultMeta, 

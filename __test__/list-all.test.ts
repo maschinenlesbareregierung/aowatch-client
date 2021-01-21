@@ -48,7 +48,7 @@ describe("listAll", ()=>{
 
     it("adding a emitter works", async ()=>{
         const emitter = getEmitter();
-        const res = await listAll(partyList, emitter);
+        const res = await listAll(partyList, 2, emitter);
         expect(res.data.length).eq(199)
     });
 
@@ -57,6 +57,6 @@ describe("listAll", ()=>{
         emitter.on('count', ()=>{
             done();
         });
-        listAll(partyList, emitter);
+        listAll(partyList, 2, emitter);
     });
 })
