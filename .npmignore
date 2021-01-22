@@ -1,1 +1,4 @@
 __test__
+.nyc_output
+.dist
+script
