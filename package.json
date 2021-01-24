@@ -24,6 +24,7 @@
     "build:node": "tsc --p ./tsconfig.node.json",
     "build:web": "webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js",
     "build:dist":"npm run build:node && npm run build:web",
+    "postbuild:dist": "git commit dist-web dist-node -m 'chore: update dist' && git push",
     "build:docs": "typedoc src/* --includeVersion",
     "gh-pages": "node ./script/gh-pages.js"
   },
