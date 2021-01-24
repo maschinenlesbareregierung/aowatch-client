@@ -42,7 +42,7 @@ var cheerio = require("cheerio");
 /**
  * Extracts external links
  * @param url url at abgeordnetenwatch.de to find external links
- * @returns
+ * @returns Array of URL Strings
  */
 var extractLinks = function (url) { return __awaiter(void 0, void 0, void 0, function () {
     var html, selector, searchResults, res;
