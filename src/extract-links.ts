@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 /**
  * Extracts external links
  * @param url url at abgeordnetenwatch.de to find external links 
- * @returns 
+ * @returns Array of URL Strings
  */
 export const extractLinks = async (url: string): Promise<string[]> =>{
     const html = await axios.get(url).then((response:any)=>response.data)    

@@ -1,7 +1,12 @@
 import { stringify } from "qs"
 import { isFilterParameters } from "./is-filter-parameters"
 import { PagerParameters, RangeParameters, SortParameters, FilterParameters, OperatorFilterParameters, RequestParameters, FilterParameterValue } from "./types"
-
+/**
+ * Creates a querystring for a request to the list functions of the API 
+ * @param params Paging or Range Parameters
+ * @param sort Sort parameters
+ * @param filter Filtering Parameters
+ */
 export const createRequestQuery = (params?: PagerParameters|RangeParameters|null, sort?: SortParameters | null, filter?: FilterParameters | OperatorFilterParameters[]): string=>{
     let requestParameters: RequestParameters = {}
     // apply range or pager
