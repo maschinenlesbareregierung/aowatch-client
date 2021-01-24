@@ -23,6 +23,7 @@
     "postversion": "git push && git push --tags && npm run build:docs && npm run gh-pages",
     "build:node": "tsc --p ./tsconfig.node.json",
     "build:web": "webpack && cp ./dist/aowatch-client-bundle.js ./dist-web/aowatch-client-bundle.js",
+    "build:dist":"npm run build:node && npm run build:web",
     "build:docs": "typedoc src/* --includeVersion",
     "gh-pages": "node ./script/gh-pages.js"
   },
